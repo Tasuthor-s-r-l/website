@@ -1,0 +1,202 @@
+/**
+ * TASUTHOR Website - Main JavaScript
+ * Handles theme toggle, smooth scroll, animations, and navbar behavior
+ */
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all components
+    initThemeToggle();
+    initNavbarScroll();
+    initSmoothScroll();
+    initScrollAnimations();
+    initActiveNavLinks();
+});
+
+/**
+ * Theme Toggle (Dark/Light Mode)
+ * Persists preference in localStorage
+ */
+function initThemeToggle() {
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    html.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+    
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+    }
+}
+
+function updateThemeIcon(theme) {
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+        const icon = themeToggle.querySelector('i');
+        if (icon) {
+            icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+    }
+}
+
+/**
+ * Navbar Scroll Behavior
+ * Adds background and reduces padding on scroll
+ */
+function initNavbarScroll() {
+    const navbar = document.querySelector('.navbar');
+    
+    if (navbar) {
+        function handleScroll() {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }
+        
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Check initial state
+    }
+}
+
+/**
+ * Smooth Scroll for Anchor Links
+ */
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            
+            // Skip if it's just "#" or empty
+            if (targetId === '#' || targetId === '') return;
+            
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                    const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                    if (bsCollapse) bsCollapse.hide();
+                }
+                
+                // Calculate offset for fixed navbar
+                const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 0;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
+
+/**
+ * Scroll-triggered Fade-in Animations
+ * Uses Intersection Observer API
+ */
+function initScrollAnimations() {
+    const animatedElements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right');
+    
+    if (animatedElements.length === 0) return;
+    
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Only animate once
+            }
+        });
+    }, observerOptions);
+    
+    animatedElements.forEach(element => {
+        observer.observe(element);
+    });
+}
+
+/**
+ * Active Navigation Link Highlighting
+ * Highlights nav link based on current scroll position
+ */
+function initActiveNavLinks() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+    
+    if (sections.length === 0 || navLinks.length === 0) return;
+    
+    function updateActiveLink() {
+        const scrollPosition = window.scrollY + 100;
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${sectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }
+    
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink(); // Check initial state
+}
+
+/**
+ * WhatsApp Link Generator
+ * Creates WhatsApp links with pre-filled messages
+ */
+function getWhatsAppLink(message) {
+    const phoneNumber = '393711369107';
+    const encodedMessage = encodeURIComponent(message);
+    return `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+}
+
+// Update WhatsApp links on page load
+document.addEventListener('DOMContentLoaded', function() {
+    // Demo request link
+    const demoLinks = document.querySelectorAll('.whatsapp-demo');
+    demoLinks.forEach(link => {
+        link.href = getWhatsAppLink('Ciao! Vorrei prenotare una demo gratuita di TASU Agent.');
+    });
+    
+    // Contact link
+    const contactLinks = document.querySelectorAll('.whatsapp-contact');
+    contactLinks.forEach(link => {
+        link.href = getWhatsAppLink('Ciao! Vorrei maggiori informazioni sui servizi TASUTHOR.');
+    });
+});
+
+/**
+ * Console Easter Egg
+ */
+console.log(
+    '%c TASUTHOR %c Soluzioni AI per Brescia ',
+    'background: #1e3a8a; color: #fbbf24; padding: 10px; font-size: 20px; font-weight: bold;',
+    'background: #fbbf24; color: #1e3a8a; padding: 10px; font-size: 14px;'
+);
+

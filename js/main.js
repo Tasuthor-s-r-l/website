@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScroll();
     initScrollAnimations();
     initActiveNavLinks();
+    initFormValidation();
 });
 
 /**
@@ -181,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Demo request link
     const demoLinks = document.querySelectorAll('.whatsapp-demo');
     demoLinks.forEach(link => {
-        link.href = getWhatsAppLink('Ciao! Vorrei prenotare una demo gratuita di TASU Agent.');
+        link.href = getWhatsAppLink('Ciao! Vorrei prenotare una demo gratuita di Agendo.');
     });
     
     // Contact link
@@ -192,10 +193,41 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /**
+ * Form Validation for Contact Form
+ */
+function initFormValidation() {
+    const form = document.getElementById('contactForm');
+    if (!form) return;
+    
+    form.addEventListener('submit', function(e) {
+        const nome = document.getElementById('nome').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const consenso = document.getElementById('consenso').checked;
+        
+        if (!nome || !email || !consenso) {
+            e.preventDefault();
+            alert('Per favore, compila tutti i campi obbligatori e acconsenti al trattamento dei dati.');
+            return;
+        }
+        
+        // Basic email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            e.preventDefault();
+            alert('Per favore, inserisci un indirizzo email valido.');
+            return;
+        }
+        
+        // Form is valid, allow submission (mailto will open email client)
+        alert('Grazie! Il tuo messaggio sarà inviato via email. Riceverai presto una risposta.');
+    });
+}
+
+/**
  * Console Easter Egg
  */
 console.log(
-    '%c TASUTHOR %c Soluzioni AI per Brescia ',
+    '%c TASUTHOR %c Soluzioni AI ',
     'background: #1e3a8a; color: #fbbf24; padding: 10px; font-size: 20px; font-weight: bold;',
     'background: #fbbf24; color: #1e3a8a; padding: 10px; font-size: 14px;'
 );

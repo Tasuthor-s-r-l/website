@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TASUTHOR - Risorse Esclusive AI. Scarica le nostre guide strategiche.">
+    <title>Risorse Esclusive | TASUTHOR</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="funnel-page">
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">TASU<span>THOR</span></a>
+        </div>
+    </nav>
+
+    <section class="section-dark min-vh-100 d-flex align-items-center pt-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center mb-5">
+                    <h1 class="display-4 highlight mb-3">Risorse Strategiche AI</h1>
+                    <p class="lead text-secondary">Accedi alla nostra collezione esclusiva di guide, script e automazioni per trasformare la tua azienda.</p>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="card feature-card">
+                        <div class="card-body p-4 p-md-5">
+                            <h2 class="h4 mb-4 text-center">Compila il form per lo sblocco immediato</h2>
+                            <form id="funnelForm" action="mailto:tasuthor@gmail.com" method="post" enctype="text/plain">
+                                <div class="mb-3">
+                                    <label for="nome" class="form-label">Nome e Cognome *</label>
+                                    <input type="text" class="form-control" id="nome" name="nome" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Aziendale *</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="azienda" class="form-label">Azienda</label>
+                                    <input type="text" class="form-control" id="azienda" name="azienda">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="interessi" class="form-label">Cosa ti interessa di più?</label>
+                                    <select class="form-select" id="interessi" name="interessi">
+                                        <option value="automazioni">Automazioni n8n</option>
+                                        <option value="agenti-telefonici">Agenti AI Telefonici</option>
+                                        <option value="chatbot">Chatbot Intelligenti</option>
+                                        <option value="strategie">Strategie Commerciali</option>
+                                    </select>
+                                </div>
+                                <div class="mb-4 form-check">
+                                    <input type="checkbox" class="form-check-input" id="privacy" required>
+                                    <label class="form-check-label small" for="privacy">
+                                        Acconsento al trattamento dei dati per finalità di marketing e comunicazioni commerciali. Leggi la <a href="privacy.html" target="_blank">Privacy Policy</a>.
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-lg w-100">
+                                    <i class="fas fa-download me-2"></i>Scarica Risorse
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer py-4">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2026 TASUTHOR. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5.3 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

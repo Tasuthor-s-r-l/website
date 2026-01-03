@@ -1,13 +1,13 @@
 # TASUTHOR - Sito Vetrina
 
-Sito vetrina professionale per **TASUTHOR**, team specializzato in soluzioni AI operative per aziende della provincia di Brescia.
+Sito vetrina professionale per **TASUTHOR**, team specializzato in soluzioni AI operative per aziende.
 
 ## Anteprima
 
 Il sito presenta:
-- **TASU Agent**: Agente IA telefonico 24/7
+- **Agendo**: Agente AI telefonico 24/7
 - **Chatbot AI**: Assistenti virtuali per siti web e canali digitali
-- **PDF Strategici**: Guide e automazioni commerciali
+- **Strategie**: Guide e automazioni commerciali (accesso tramite form)
 
 ## Struttura del Progetto
 
@@ -23,7 +23,7 @@ tasuthor-website/
 ├── assets/
 │   ├── images/             # Immagini (placeholder)
 │   └── pdf/
-│       └── esempio-strategico.html  # Guida PDF di esempio
+│       └── esempio-strategico.html  # Guida strategica di esempio (accesso tramite form)
 └── README.md
 ```
 
@@ -105,24 +105,21 @@ Cerca e sostituisci in tutti i file:
 ### Immagini
 Sostituisci i placeholder in:
 - Hero section (sfondo animato CSS)
-- Sezione TASU Agent (screenshot)
+- Sezione Agendo (screenshot)
 - Sezione Chatbot (demo)
 
 Le dimensioni consigliate sono indicate nei commenti HTML.
 
-### PDF Strategico
+### Strategie
 Il file `assets/pdf/esempio-strategico.html` è una guida interattiva che può essere:
-1. Usata così com'è (gli utenti possono stamparla come PDF)
+1. Usata così com'è (gli utenti possono stamparla come PDF dopo aver compilato il form)
 2. Sostituita con un vero file PDF rinominato `esempio-strategico.pdf`
 
-Per usare un PDF reale, aggiorna i link in `index.html`:
-```html
-<a href="assets/pdf/esempio-strategico.pdf" download>
-```
+Le guide sono ora accessibili solo tramite il form di contatto in `index.html` per rispettare le normative sulla privacy.
 
 ## Link Esterni
 
-- **TASU Agent Demo**: https://ai.tasuthor.com
+- **Agendo Demo**: https://ai.tasuthor.com
 - **WhatsApp**: https://wa.me/393711369107
 
 ## Browser Supportati
@@ -140,12 +137,12 @@ Per usare un PDF reale, aggiorna i link in `index.html`:
 
 ## Licenza
 
-© 2025 TASUTHOR. Tutti i diritti riservati.
+© 2026 TASUTHOR. Tutti i diritti riservati.
 
 ---
 
 **Contatti**
 - Email: tasuthor@gmail.com
 - WhatsApp: +39 371 136 9107
-- Sede: Brescia, Italia
+- Sede: Italia
 

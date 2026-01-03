@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollAnimations();
     initActiveNavLinks();
     initFormValidation();
+    initCookieBanner();
 });
 
 /**
@@ -221,6 +222,49 @@ function initFormValidation() {
         // Form is valid, allow submission (mailto will open email client)
         alert('Grazie! Il tuo messaggio sarà inviato via email. Riceverai presto una risposta.');
     });
+}
+
+/**
+ * Cookie Banner
+ * Shows banner if user hasn't made a choice, handles accept/reject actions
+ */
+function initCookieBanner() {
+    const cookieBanner = document.getElementById('cookieBanner');
+    const acceptBtn = document.getElementById('acceptCookies');
+    const rejectBtn = document.getElementById('rejectCookies');
+    
+    // Check if user has already made a choice
+    const cookieChoice = localStorage.getItem('cookieChoice');
+    
+    if (!cookieChoice) {
+        // Show banner after a short delay
+        setTimeout(() => {
+            cookieBanner.classList.add('show');
+        }, 1000);
+    }
+    
+    // Handle accept button
+    if (acceptBtn) {
+        acceptBtn.addEventListener('click', function() {
+            localStorage.setItem('cookieChoice', 'accepted');
+            hideCookieBanner();
+        });
+    }
+    
+    // Handle reject button
+    if (rejectBtn) {
+        rejectBtn.addEventListener('click', function() {
+            localStorage.setItem('cookieChoice', 'rejected');
+            hideCookieBanner();
+        });
+    }
+    
+    function hideCookieBanner() {
+        cookieBanner.classList.remove('show');
+        setTimeout(() => {
+            cookieBanner.style.display = 'none';
+        }, 300);
+    }
 }
 
 /**

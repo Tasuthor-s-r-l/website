@@ -988,6 +988,32 @@ section {
     font-size: 0.9rem;
 }
 
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--bg-tertiary);
+    border-radius: 50%;
+    color: var(--text-secondary);
+    transition: all var(--transition-fast);
+    font-size: 1.1rem;
+}
+
+.social-icons a:hover {
+    background-color: var(--accent-yellow);
+    color: var(--primary-blue);
+    transform: translateY(-2px);
+}
+
 /* ============================================
    Scroll Animations
    ============================================ */

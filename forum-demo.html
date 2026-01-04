@@ -1,32 +1,287 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Richiedi Demo Gratuita - TASUTHOR</title>
+    <meta name="description" content="Richiedi una demo gratuita delle soluzioni AI di TASUTHOR - Agenti AI, Chatbot intelligenti e automazioni per la tua azienda.">
+    <title>Richiedi Demo Gratuita - TASUTHOR | Soluzioni AI</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5.3 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container mt-5">
-        <h1>Richiedi la Tua Demo Gratuita</h1>
-        <p>Compila il form per ricevere una demo personalizzata delle nostre soluzioni AI.</p>
-        <form id="demo-form">
-            <div class="mb-3">
-                <label for="name" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="name" required>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">TASU<span>THOR</span></a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#chi-siamo">Chi Siamo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#agendo">Agendo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#chatbot">Chatbot AI</a>
+                    </li>
+                </ul>
+                
+                <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema">
+                    <i class="fas fa-sun"></i>
+                </button>
             </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" required>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="section-light" style="padding-top: 8rem; padding-bottom: 5rem;">
+        <div class="container">
+            <!-- Header -->
+            <div class="text-center mb-5 fade-in">
+                <div class="d-inline-block mb-3">
+                    <span class="badge bg-primary" style="font-size: 1rem; padding: 0.5rem 1rem;">
+                        <i class="fas fa-rocket me-2"></i>Demo Gratuita
+                    </span>
+                </div>
+                <h1 class="display-4 fw-bold mb-3">
+                    Richiedi la Tua <span class="highlight">Demo Gratuita</span>
+                </h1>
+                <p class="lead text-secondary mx-auto" style="max-width: 700px;">
+                    Scopri come le nostre soluzioni AI possono trasformare il tuo business. Compila il form e ti ricontatteremo entro 24 ore per una consulenza personalizzata.
+                </p>
             </div>
-            <div class="mb-3">
-                <label for="message" class="form-label">Messaggio</label>
-                <textarea class="form-control" id="message"></textarea>
+
+            <div class="row justify-content-center">
+                <!-- Form Column -->
+                <div class="col-lg-7 col-xl-6">
+                    <div class="card shadow-lg fade-in stagger-1">
+                        <div class="card-body p-4 p-md-5">
+                            <form id="demo-form" action="mailto:tasuthor@gmail.com" method="post" enctype="text/plain">
+                                <!-- Nome e Cognome -->
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="name" class="form-label">
+                                            <i class="fas fa-user me-1"></i>Nome e Cognome *
+                                        </label>
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Mario Rossi" required>
+                                    </div>
+                                    
+                                    <!-- Telefono -->
+                                    <div class="col-md-6 mb-3">
+                                        <label for="phone" class="form-label">
+                                            <i class="fas fa-phone me-1"></i>Telefono *
+                                        </label>
+                                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="+39 123 456 7890" pattern="[0-9+\s()-]+" required>
+                                    </div>
+                                </div>
+
+                                <!-- Email e Azienda -->
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="email" class="form-label">
+                                            <i class="fas fa-envelope me-1"></i>Email *
+                                        </label>
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="mario.rossi@azienda.it" required>
+                                    </div>
+                                    
+                                    <div class="col-md-6 mb-3">
+                                        <label for="company" class="form-label">
+                                            <i class="fas fa-building me-1"></i>Azienda
+                                        </label>
+                                        <input type="text" class="form-control" id="company" name="company" placeholder="Nome Azienda">
+                                    </div>
+                                </div>
+
+                                <!-- Servizio di interesse -->
+                                <div class="mb-3">
+                                    <label for="service" class="form-label">
+                                        <i class="fas fa-tag me-1"></i>Servizio di interesse
+                                    </label>
+                                    <select class="form-control" id="service" name="service">
+                                        <option value="">Seleziona un servizio...</option>
+                                        <option value="agendo">Agendo - Agente AI Telefonico</option>
+                                        <option value="chatbot">Chatbot AI per Sito Web</option>
+                                        <option value="strategie">Strategie e Consulenza AI</option>
+                                        <option value="tutti">Tutti i servizi</option>
+                                    </select>
+                                </div>
+
+                                <!-- Messaggio -->
+                                <div class="mb-4">
+                                    <label for="message" class="form-label">
+                                        <i class="fas fa-comment me-1"></i>Messaggio
+                                    </label>
+                                    <textarea class="form-control" id="message" name="message" rows="4" placeholder="Descrivi brevemente le tue esigenze o i problemi che vorresti risolvere con le nostre soluzioni AI..."></textarea>
+                                </div>
+
+                                <!-- Privacy -->
+                                <div class="mb-4 form-check">
+                                    <input type="checkbox" class="form-check-input" id="privacy" required>
+                                    <label class="form-check-label" for="privacy">
+                                        Acconsento al trattamento dei dati personali ai sensi del GDPR. Leggi la nostra <a href="privacy.html" target="_blank">Privacy Policy</a>.
+                                    </label>
+                                </div>
+
+                                <!-- Buttons -->
+                                <div class="d-grid gap-2">
+                                    <button type="submit" class="btn btn-primary btn-lg">
+                                        <i class="fas fa-paper-plane me-2"></i>Invia Richiesta Demo
+                                    </button>
+                                    <a href="https://wa.me/393711369107?text=Ciao!%20Vorrei%20richiedere%20una%20demo" class="btn btn-outline-success btn-lg">
+                                        <i class="fab fa-whatsapp me-2"></i>Contattaci su WhatsApp
+                                    </a>
+                                    <a href="index.html" class="btn btn-outline-secondary">
+                                        <i class="fas fa-arrow-left me-2"></i>Torna alla Home
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info Sidebar -->
+                <div class="col-lg-5 col-xl-4 mt-4 mt-lg-0">
+                    <!-- Benefits Card -->
+                    <div class="card mb-4 fade-in stagger-2">
+                        <div class="card-body p-4">
+                            <h5 class="card-title mb-3">
+                                <i class="fas fa-check-circle text-accent me-2"></i>Cosa Riceverai
+                            </h5>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2">
+                                    <i class="fas fa-chevron-right text-accent me-2"></i>
+                                    <small>Demo personalizzata entro 24 ore</small>
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-chevron-right text-accent me-2"></i>
+                                    <small>Consulenza gratuita di 30 minuti</small>
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-chevron-right text-accent me-2"></i>
+                                    <small>Analisi delle tue esigenze specifiche</small>
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-chevron-right text-accent me-2"></i>
+                                    <small>Preventivo personalizzato</small>
+                                </li>
+                                <li>
+                                    <i class="fas fa-chevron-right text-accent me-2"></i>
+                                    <small>Accesso alle guide strategiche PDF</small>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Contact Card -->
+                    <div class="card fade-in stagger-3">
+                        <div class="card-body p-4">
+                            <h5 class="card-title mb-3">
+                                <i class="fas fa-headset text-accent me-2"></i>Preferisci Parlare Subito?
+                            </h5>
+                            <p class="text-secondary small mb-3">
+                                Contattaci direttamente per una consulenza immediata
+                            </p>
+                            <div class="d-grid gap-2">
+                                <a href="https://wa.me/393711369107" target="_blank" class="btn btn-success">
+                                    <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                                </a>
+                                <a href="mailto:tasuthor@gmail.com" class="btn btn-outline-primary">
+                                    <i class="fas fa-envelope me-2"></i>Email
+                                </a>
+                            </div>
+                            <div class="text-center mt-3">
+                                <small class="text-muted">
+                                    <i class="fas fa-clock me-1"></i>
+                                    Rispondiamo in max 24 ore
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary">Richiedi Demo</button>
-        </form>
-    </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="footer-brand">TASU<span>THOR</span></div>
+                    <p class="footer-description">
+                        Soluzioni AI operative per aziende B2B e B2C. Agenti AI, Chatbot intelligenti e automazioni commerciali.
+                    </p>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Link Utili</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#chi-siamo">Chi Siamo</a></li>
+                        <li><a href="index.html#agendo">Agendo</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Contatti</h5>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:tasuthor@gmail.com">tasuthor@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="fab fa-whatsapp"></i>
+                            <a href="https://wa.me/393711369107" target="_blank">+39 371 136 9107</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="social-icons">
+                    <a href="#" target="_blank" rel="noopener" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+                <p>&copy; 2026 TASUTHOR. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5.3 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
     <script src="js/main.js"></script>
 </body>
 </html>

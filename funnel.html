@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="TASUTHOR - Risorse Esclusive AI. Scarica le nostre guide strategiche.">
-    <title>Risorse Esclusive | TASUTHOR</title>
+    <meta name="description" content="TASUTHOR - Risorse Esclusive AI. Scarica le nostre guide strategiche, script e automazioni gratuite.">
+    <title>Risorse Esclusive AI | TASUTHOR</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,58 +21,237 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="funnel-page">
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">TASU<span>THOR</span></a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="forum-demo.html">Richiedi Demo</a>
+                    </li>
+                </ul>
+                
+                <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
-    <section class="section-dark min-vh-100 d-flex align-items-center pt-5">
+    <!-- Main Content -->
+    <section class="section-dark min-vh-100 d-flex align-items-center" style="padding-top: 6rem; padding-bottom: 4rem;">
         <div class="container">
+            <!-- Header -->
             <div class="row justify-content-center">
-                <div class="col-lg-8 text-center mb-5">
-                    <h1 class="display-4 highlight mb-3">Risorse Strategiche AI</h1>
-                    <p class="lead text-secondary">Accedi alla nostra collezione esclusiva di guide, script e automazioni per trasformare la tua azienda.</p>
+                <div class="col-lg-10 text-center mb-5 fade-in">
+                    <div class="d-inline-block mb-3">
+                        <span class="badge bg-primary" style="font-size: 1rem; padding: 0.5rem 1rem;">
+                            <i class="fas fa-gift me-2"></i>Risorse Gratuite
+                        </span>
+                    </div>
+                    <h1 class="display-3 fw-bold mb-3">
+                        Risorse <span class="highlight">Strategiche AI</span>
+                    </h1>
+                    <p class="lead text-secondary mx-auto" style="max-width: 800px;">
+                        Accedi alla nostra collezione esclusiva di guide, script e automazioni per trasformare la tua azienda con l'intelligenza artificiale.
+                    </p>
                 </div>
             </div>
             
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="card feature-card">
+            <div class="row justify-content-center align-items-start g-4">
+                <!-- Form Column -->
+                <div class="col-lg-6 col-xl-5">
+                    <div class="card feature-card shadow-lg fade-in stagger-1">
                         <div class="card-body p-4 p-md-5">
-                            <h2 class="h4 mb-4 text-center">Compila il form per lo sblocco immediato</h2>
+                            <div class="text-center mb-4">
+                                <div class="d-inline-flex align-items-center justify-content-center rounded-circle bg-primary bg-opacity-10" style="width: 80px; height: 80px;">
+                                    <i class="fas fa-unlock-alt fa-2x text-accent"></i>
+                                </div>
+                                <h2 class="h4 mt-3 mb-2">Sblocca l'Accesso Immediato</h2>
+                                <p class="text-secondary small mb-0">Compila il form e ricevi tutto via email</p>
+                            </div>
+                            
                             <form id="funnelForm" action="mailto:tasuthor@gmail.com" method="post" enctype="text/plain">
+                                <!-- Nome -->
                                 <div class="mb-3">
-                                    <label for="nome" class="form-label">Nome e Cognome *</label>
-                                    <input type="text" class="form-control" id="nome" name="nome" required>
+                                    <label for="nome" class="form-label">
+                                        <i class="fas fa-user me-1"></i>Nome e Cognome *
+                                    </label>
+                                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Mario Rossi" required>
                                 </div>
+                                
+                                <!-- Email -->
                                 <div class="mb-3">
-                                    <label for="email" class="form-label">Email Aziendale *</label>
-                                    <input type="email" class="form-control" id="email" name="email" required>
+                                    <label for="email" class="form-label">
+                                        <i class="fas fa-envelope me-1"></i>Email *
+                                    </label>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="mario.rossi@azienda.it" required>
                                 </div>
+                                
+                                <!-- Telefono -->
                                 <div class="mb-3">
-                                    <label for="azienda" class="form-label">Azienda</label>
-                                    <input type="text" class="form-control" id="azienda" name="azienda">
+                                    <label for="telefono" class="form-label">
+                                        <i class="fas fa-phone me-1"></i>Telefono
+                                    </label>
+                                    <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="+39 123 456 7890" pattern="[0-9+\s()-]+">
                                 </div>
+                                
+                                <!-- Azienda -->
                                 <div class="mb-3">
-                                    <label for="interessi" class="form-label">Cosa ti interessa di più?</label>
-                                    <select class="form-select" id="interessi" name="interessi">
-                                        <option value="automazioni">Automazioni n8n</option>
+                                    <label for="azienda" class="form-label">
+                                        <i class="fas fa-building me-1"></i>Azienda
+                                    </label>
+                                    <input type="text" class="form-control" id="azienda" name="azienda" placeholder="Nome Azienda">
+                                </div>
+                                
+                                <!-- Interesse -->
+                                <div class="mb-3">
+                                    <label for="interessi" class="form-label">
+                                        <i class="fas fa-tag me-1"></i>Cosa ti interessa di più?
+                                    </label>
+                                    <select class="form-control" id="interessi" name="interessi">
+                                        <option value="">Seleziona...</option>
                                         <option value="agenti-telefonici">Agenti AI Telefonici</option>
                                         <option value="chatbot">Chatbot Intelligenti</option>
+                                        <option value="automazioni">Automazioni n8n</option>
                                         <option value="strategie">Strategie Commerciali</option>
+                                        <option value="tutto">Tutto</option>
                                     </select>
                                 </div>
+                                
+                                <!-- Privacy -->
                                 <div class="mb-4 form-check">
                                     <input type="checkbox" class="form-check-input" id="privacy" required>
                                     <label class="form-check-label small" for="privacy">
-                                        Acconsento al trattamento dei dati per finalità di marketing e comunicazioni commerciali. Leggi la <a href="privacy.html" target="_blank">Privacy Policy</a>.
+                                        Acconsento al trattamento dei dati per finalità di marketing. Leggi la <a href="privacy.html" target="_blank">Privacy Policy</a>.
                                     </label>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-lg w-100">
-                                    <i class="fas fa-download me-2"></i>Scarica Risorse
-                                </button>
+                                
+                                <!-- Submit -->
+                                <div class="d-grid gap-2">
+                                    <button type="submit" class="btn btn-primary btn-lg">
+                                        <i class="fas fa-download me-2"></i>Scarica Risorse Gratuite
+                                    </button>
+                                    <a href="forum-demo.html" class="btn btn-outline-primary">
+                                        <i class="fas fa-calendar-check me-2"></i>Richiedi una Demo
+                                    </a>
+                                </div>
                             </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Resources Preview Column -->
+                <div class="col-lg-6">
+                    <div class="fade-in stagger-2">
+                        <h3 class="h5 mb-4 text-center text-lg-start">
+                            <i class="fas fa-star text-accent me-2"></i>Cosa Riceverai:
+                        </h3>
+                        
+                        <div class="row g-3">
+                            <!-- Resource 1 -->
+                            <div class="col-md-6">
+                                <div class="card h-100">
+                                    <div class="card-body p-3">
+                                        <div class="d-flex align-items-start">
+                                            <div class="flex-shrink-0">
+                                                <i class="fas fa-file-pdf fa-2x text-accent"></i>
+                                            </div>
+                                            <div class="flex-grow-1 ms-3">
+                                                <h5 class="h6 mb-1">Guida Strategica AI</h5>
+                                                <p class="small text-secondary mb-0">Come implementare AI nel tuo business</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Resource 2 -->
+                            <div class="col-md-6">
+                                <div class="card h-100">
+                                    <div class="card-body p-3">
+                                        <div class="d-flex align-items-start">
+                                            <div class="flex-shrink-0">
+                                                <i class="fas fa-code fa-2x text-accent"></i>
+                                            </div>
+                                            <div class="flex-grow-1 ms-3">
+                                                <h5 class="h6 mb-1">Script Automazioni</h5>
+                                                <p class="small text-secondary mb-0">Template pronti per n8n</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Resource 3 -->
+                            <div class="col-md-6">
+                                <div class="card h-100">
+                                    <div class="card-body p-3">
+                                        <div class="d-flex align-items-start">
+                                            <div class="flex-shrink-0">
+                                                <i class="fas fa-robot fa-2x text-accent"></i>
+                                            </div>
+                                            <div class="flex-grow-1 ms-3">
+                                                <h5 class="h6 mb-1">Setup Agenti AI</h5>
+                                                <p class="small text-secondary mb-0">Guida completa implementazione</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Resource 4 -->
+                            <div class="col-md-6">
+                                <div class="card h-100">
+                                    <div class="card-body p-3">
+                                        <div class="d-flex align-items-start">
+                                            <div class="flex-shrink-0">
+                                                <i class="fas fa-chart-line fa-2x text-accent"></i>
+                                            </div>
+                                            <div class="flex-grow-1 ms-3">
+                                                <h5 class="h6 mb-1">Strategie Vendita</h5>
+                                                <p class="small text-secondary mb-0">Template funnel e sequenze</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Benefits Box -->
+                        <div class="card mt-4 border-accent">
+                            <div class="card-body p-4">
+                                <h5 class="h6 mb-3">
+                                    <i class="fas fa-check-circle text-accent me-2"></i>Vantaggi Immediati
+                                </h5>
+                                <ul class="list-unstyled mb-0 small">
+                                    <li class="mb-2">
+                                        <i class="fas fa-chevron-right text-accent me-2"></i>
+                                        Accesso immediato dopo la registrazione
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="fas fa-chevron-right text-accent me-2"></i>
+                                        Aggiornamenti gratuiti per sempre
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="fas fa-chevron-right text-accent me-2"></i>
+                                        Supporto prioritario via email
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-chevron-right text-accent me-2"></i>
+                                        Invito a webinar esclusivi
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -80,13 +259,66 @@
         </div>
     </section>
 
-    <footer class="footer py-4">
-        <div class="container text-center">
-            <p class="mb-0">&copy; 2026 TASUTHOR. Tutti i diritti riservati.</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="footer-brand">TASU<span>THOR</span></div>
+                    <p class="footer-description">
+                        Soluzioni AI operative per aziende B2B e B2C. Agenti AI, Chatbot intelligenti e automazioni commerciali.
+                    </p>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Link Utili</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#chi-siamo">Chi Siamo</a></li>
+                        <li><a href="forum-demo.html">Richiedi Demo</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Contatti</h5>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:tasuthor@gmail.com">tasuthor@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="fab fa-whatsapp"></i>
+                            <a href="https://wa.me/393711369107" target="_blank">+39 371 136 9107</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="social-icons">
+                    <a href="#" target="_blank" rel="noopener" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+                <p>&copy; 2026 TASUTHOR. Tutti i diritti riservati.</p>
+            </div>
         </div>
     </footer>
 
     <!-- Bootstrap 5.3 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
 </body>
 </html>

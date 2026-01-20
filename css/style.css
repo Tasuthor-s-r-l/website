@@ -126,6 +126,20 @@ a:hover {
     font-weight: 700;
     color: var(--accent-yellow) !important;
     letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.navbar-logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    transition: transform var(--transition-fast);
+}
+
+.navbar:hover .navbar-logo {
+    transform: scale(1.05);
 }
 
 .navbar-brand span {

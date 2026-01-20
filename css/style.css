@@ -953,6 +953,11 @@ section {
     color: var(--text-primary);
 }
 
+/* Ensure 'THOR' gets the requested accent color even inside .footer-brand */
+.footer-brand .brand-thor {
+    color: #11a5c4;
+}
+
 .footer-description {
     color: var(--text-secondary);
     font-size: 0.95rem;
@@ -1283,6 +1288,12 @@ section {
         justify-content: center;
     }
 }
+
+/* Brand accent for THOR */
+.brand-thor {
+    color: #11a5c4;
+}
+
 
 /* ============================================
    Form Styling Enhancements

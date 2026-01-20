@@ -1294,6 +1294,11 @@ section {
     color: #11a5c4;
 }
 
+/* Color Font Awesome icons inside cards to match THOR accent */
+.card i.fas, .card i.far, .card i.fab, .card .fa {
+    color: #11a5c4;
+}
+
 
 /* ============================================
    Form Styling Enhancements

@@ -32,6 +32,9 @@
     /* Spacing */
     --section-padding: 5rem 0;
     --section-padding-mobile: 3rem 0;
+    /* Navbar logo sizing (use these to control cropping in width) */
+    --navbar-logo-height: 100px;
+    --navbar-logo-height-mobile: 72px;
 }
 
 /* Light Mode */
@@ -131,11 +134,21 @@ a:hover {
     gap: 0.75rem;
 }
 
+.navbar-logo-wrap {
+    display: inline-block;
+    height: var(--navbar-logo-height);
+    overflow: hidden;
+    vertical-align: middle;
+}
+
 .navbar-logo {
-    height: 100px;
+    height: var(--navbar-logo-height);
     width: auto;
+    display: block;
     object-fit: contain;
     transition: transform var(--transition-fast);
+    /* small horizontal nudge to hide tiny left padding inside the SVG if present */
+    transform: translateX(0);
 }
 
 .navbar:hover .navbar-logo {
@@ -147,8 +160,9 @@ a:hover {
 }
 
 @media (max-width: 575px) {
+    .navbar-logo-wrap,
     .navbar-logo {
-        height: 112px;
+        height: var(--navbar-logo-height-mobile);
     }
 }
 

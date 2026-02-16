@@ -1299,6 +1299,11 @@ section {
     color: #11a5c4;
 }
 
+/* Global Font Awesome icon color to match THOR accent */
+.fa, .fas, .far, .fab {
+    color: #11a5c4;
+}
+
 
 /* ============================================
    Form Styling Enhancements

@@ -20,8 +20,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
       <div className="container flex h-16 items-center justify-between">
         <Link to="/" className="font-heading text-xl font-bold tracking-tight">
-          <span className="text-foreground">TAS</span>
-          <span className="text-primary">UTHOR</span>
+          <img src="/tasuthor.svg" alt="Tasuthor" className="h-14 w-auto" />
         </Link>
 
         {/* Desktop nav */}

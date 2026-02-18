@@ -6,8 +6,7 @@ const Footer = () => (
       <div className="grid gap-8 md:grid-cols-4">
         <div>
           <Link to="/" className="font-heading text-xl font-bold tracking-tight">
-            <span className="text-foreground">TAS</span>
-            <span className="text-primary">UTHOR</span>
+            <img src="/tasuthor.svg" alt="Tasuthor" className="h-14 w-auto" />
           </Link>
           <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
             AI Operational Systems Company.<br />

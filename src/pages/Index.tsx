@@ -167,9 +167,9 @@ const ProcessoSection = () => (
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {[
           { step: "01", title: "Mappatura operativa", desc: "Call di 30–60 min per capire processi, strumenti e obiettivi.", time: "Giorno 1" },
-          { step: "02", title: "Sprint implementazione", desc: "Costruiamo le automazioni e configuriamo AGENDO in 7–14 giorni.", time: "Giorni 2–14" },
+          { step: "02", title: "Sprint implementazione", desc: "Costruiamo le automazioni e le integriamo in 7–14 giorni.", time: "Giorni 2–14" },
           { step: "03", title: "Testing & ottimizzazione", desc: "Testing reale con dati veri, ottimizzazione per 2–4 settimane.", time: "Settimane 2–4" },
-          { step: "04", title: "Estensione & scala", desc: "Nuovi flussi, pacchetti aggiuntivi, evoluzione con AGENDO.", time: "Continuo" },
+          { step: "04", title: "Estensione & scala", desc: "Nuovi flussi, pacchetti aggiuntivi, continuo miglioramento.", time: "Continuo" },
         ].map(({ step, title, desc, time }) => (
           <div key={step} className="relative rounded-lg border border-border/50 bg-card p-6">
             <span className="text-3xl font-bold text-primary/20">{step}</span>

@@ -23,9 +23,9 @@ const Metodo = () => (
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
             { step: "01", title: "Mappatura operativa", desc: "Call gratuita di 30–60 minuti. Analizziamo i tuoi processi, strumenti e colli di bottiglia. Identifichiamo le automazioni con il maggior impatto.", color: "text-primary" },
-            { step: "02", title: "Sprint implementazione", desc: "In 7–14 giorni costruiamo le automazioni, configuriamo AGENDO e colleghiamo i tuoi strumenti. Tutto testato prima del go-live.", color: "text-tech-blue" },
+            { step: "02", title: "Sprint implementazione", desc: "In 7–14 giorni costruiamo le automazioni, integriamo i tuoi strumenti e testiamo tutto prima del go-live.", color: "text-tech-blue" },
             { step: "03", title: "Testing reale", desc: "2–4 settimane di utilizzo con dati reali. Monitoriamo i KPI, raccogliamo feedback e ottimizziamo i flussi.", color: "text-accent" },
-            { step: "04", title: "Estensione", desc: "Nuovi processi, nuovi flussi, evoluzione AGENDO. Pacchetti scalabili in base alle esigenze.", color: "text-primary" },
+            { step: "04", title: "Estensione", desc: "Nuovi processi, nuovi flussi, continuo miglioramento basato sui risultati. Pacchetti scalabili in base alle esigenze.", color: "text-primary" },
           ].map(({ step, title, desc, color }) => (
             <div key={step} className="rounded-lg border border-border/50 bg-card p-6">
               <span className={`text-3xl font-bold ${color} opacity-30`}>{step}</span>

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Cookie } from "lucide-react";
 
 const Footer = () => (
   <footer className="border-t border-border/50 bg-background">
@@ -47,9 +48,16 @@ const Footer = () => (
         <div>
           <h4 className="mb-3 text-sm font-semibold text-foreground">Legale</h4>
           <div className="flex flex-col gap-2 text-sm text-muted-foreground">
-            <span className="cursor-pointer hover:text-primary transition-colors">Privacy Policy</span>
-            <span className="cursor-pointer hover:text-primary transition-colors">Cookie Policy</span>
-            <span className="cursor-pointer hover:text-primary transition-colors">Termini di servizio</span>
+            <Link to="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+            <Link to="/termini-di-servizio" className="hover:text-primary transition-colors">Termini di servizio</Link>
+            <Link to="/cookie-policy" className="hover:text-primary transition-colors">Cookie Policy</Link>
+            <button
+              onClick={() => window.dispatchEvent(new Event("tasuthor:open-cookie-banner"))}
+              className="flex items-center gap-1.5 text-left hover:text-primary transition-colors"
+            >
+              <Cookie className="h-3.5 w-3.5" />
+              Gestisci cookie
+            </button>
           </div>
         </div>
       </div>

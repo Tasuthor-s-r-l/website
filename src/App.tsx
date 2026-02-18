@@ -9,7 +9,11 @@ import AgendoPage from "./pages/Agendo";
 import CasiDuso from "./pages/CasiDuso";
 import Metodo from "./pages/Metodo";
 import Contatti from "./pages/Contatti";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TerminiServizio from "./pages/TerminiServizio";
+import CookiePolicy from "./pages/CookiePolicy";
 import NotFound from "./pages/NotFound";
+import CookieBanner from "./components/CookieBanner";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +23,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <CookieBanner />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/soluzioni" element={<Soluzioni />} />
@@ -26,6 +31,9 @@ const App = () => (
           <Route path="/casi-duso" element={<CasiDuso />} />
           <Route path="/metodo" element={<Metodo />} />
           <Route path="/contatti" element={<Contatti />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/termini-di-servizio" element={<TerminiServizio />} />
+          <Route path="/cookie-policy" element={<CookiePolicy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

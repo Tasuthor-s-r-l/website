@@ -23,7 +23,7 @@ const HeroSection = () => (
           <span className="text-gradient-brand">per PMI che producono</span>
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-          Implementiamo automazioni di processo con n8n e AI. Gestiamo chiamate e appuntamenti con AGENDO, il nostro voice agent. Risultati misurabili, messa in produzione rapida.
+          Implementiamo automazioni di processo con AI. Gestiamo chiamate e appuntamenti con AGENDO, il nostro voice agent. Risultati misurabili, messa in produzione rapida.
         </p>
         <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
           <Link to="/contatti">
@@ -90,7 +90,7 @@ const CosaFacciamoSection = () => (
       <div className="mt-12 grid gap-8 md:grid-cols-2">
         <div className="rounded-xl border border-border/50 bg-gradient-teal p-8">
           <Workflow size={32} className="text-tech-blue mb-4" />
-          <h3 className="text-xl font-semibold">Automazioni di processo con n8n</h3>
+          <h3 className="text-xl font-semibold">Automazioni di processo</h3>
           <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
             Colleghiamo CRM, calendari, gestionali e strumenti già in uso. Costruiamo flussi automatici: dal lead al follow-up, dalla richiesta allo smistamento, dai reminder agli appuntamenti.
           </p>
@@ -141,7 +141,7 @@ const AgendoPreview = () => (
           { icon: PhoneCall, title: "Inbound", desc: "Risponde, qualifica, raccoglie dati e smista le chiamate in arrivo" },
           { icon: Phone, title: "Outbound", desc: "Campagne di richiamo, conferme appuntamento, follow-up automatici" },
           { icon: Calendar, title: "Agenda & Calendar", desc: "Prenota, modifica e cancella appuntamenti in autonomia" },
-          { icon: Workflow, title: "CRM & Workflow", desc: "Si integra via API con n8n, CRM, gestionali e calendari" },
+          { icon: Workflow, title: "CRM & Workflow", desc: "Si integra via API con CRM, gestionali e calendari" },
         ].map(({ icon: Icon, title, desc }) => (
           <div key={title} className="rounded-lg border border-accent/20 bg-card p-6 card-hover">
             <Icon size={24} className="text-accent mb-3" />
@@ -267,7 +267,7 @@ const AccessoAnticipatoSection = () => (
 
 /* ─── FAQ ─── */
 const faqData = [
-  { q: "Dobbiamo cambiare gli strumenti che usiamo già?", a: "No. Ci integriamo con i tuoi strumenti attuali (CRM, calendario, gestionale) tramite API e n8n. Non serve cambiare nulla." },
+  { q: "Dobbiamo cambiare gli strumenti che usiamo già?", a: "No. Ci integriamo con i tuoi strumenti attuali (CRM, calendario, gestionale) tramite API e automazioni. Non serve cambiare nulla." },
   { q: "Quanto tempo serve per vedere i primi risultati?", a: "Dipende dalla complessità, ma in genere le prime automazioni sono operative in 7–14 giorni. Risultati misurabili entro 4 settimane." },
   { q: "AGENDO sostituisce il personale?", a: "No. AGENDO gestisce le attività ripetitive e a basso valore (smistamento chiamate, reminder, raccolta dati), liberando tempo per il lavoro che richiede competenza umana." },
   { q: "I dati sono al sicuro?", a: "Sì. Applichiamo best practice di sicurezza: accessi controllati, separazione dati tra clienti, logging delle operazioni." },

@@ -43,7 +43,7 @@ const Metodo = () => (
         <h2 className="text-center text-3xl font-bold">Cosa consegniamo</h2>
         <div className="mx-auto mt-12 grid max-w-3xl gap-4 sm:grid-cols-2">
           {[
-            { icon: Workflow, label: "Automazioni operative", desc: "Flussi n8n funzionanti e documentati" },
+            { icon: Workflow, label: "Automazioni operative", desc: "Flussi di automazione funzionanti e documentati" },
             { icon: FileText, label: "Documentazione", desc: "Schema flussi, configurazioni, accessi" },
             { icon: Users, label: "Training", desc: "Sessione operativa per il tuo team" },
             { icon: Settings, label: "Monitoraggio", desc: "Dashboard KPI e alert automatici" },

@@ -50,10 +50,10 @@ const AgendoPage = () => (
     <section className="py-20 bg-gradient-dark">
       <div className="container">
         <h2 className="text-center text-3xl font-bold">Come si integra</h2>
-        <p className="mt-4 text-center text-muted-foreground">AGENDO si collega ai tuoi strumenti tramite API e n8n.</p>
+        <p className="mt-4 text-center text-muted-foreground">AGENDO si collega ai tuoi strumenti tramite API e automazioni.</p>
         <div className="mx-auto mt-12 grid max-w-3xl gap-4 sm:grid-cols-2">
           {[
-            { label: "n8n", desc: "Orchestrazione flussi e automazioni" },
+            { label: "Automazione flussi", desc: "Orchestrazione e collegamento tra strumenti" },
             { label: "ElevenLabs", desc: "Sintesi vocale naturale" },
             { label: "Retell AI", desc: "Conversazione telefonica AI" },
             { label: "CRM / Gestionali", desc: "Sincronizzazione dati clienti" },

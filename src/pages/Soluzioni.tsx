@@ -17,13 +17,13 @@ const Soluzioni = () => (
       </div>
     </section>
 
-    {/* Automazioni n8n */}
+    {/* Automazioni di processo */}
     <section className="py-20">
       <div className="container">
         <div className="grid gap-12 md:grid-cols-2 items-center">
           <div>
             <Workflow size={40} className="text-tech-blue mb-4" />
-            <h2 className="text-3xl font-bold">Automazioni di processo con n8n</h2>
+            <h2 className="text-3xl font-bold">Automazioni di processo</h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
               Colleghiamo i tuoi strumenti e costruiamo flussi automatici che eliminano le attività ripetitive. Ogni automazione è misurabile, documentata e scalabile.
             </p>
@@ -68,7 +68,7 @@ const Soluzioni = () => (
               { label: "Chiamate inbound", desc: "Risposta, qualifica, smistamento" },
               { label: "Chiamate outbound", desc: "Follow-up, conferme, campagne" },
               { label: "Gestione agenda", desc: "Prenotazione, modifica, cancellazione" },
-              { label: "Integrazione API", desc: "n8n, CRM, calendari, gestionali" },
+              { label: "Integrazione API", desc: "CRM, calendari, gestionali e sistemi aziendali" },
             ].map(({ label, desc }) => (
               <div key={label} className="rounded-lg border border-accent/20 bg-card p-5">
                 <p className="text-sm font-semibold text-foreground">{label}</p>
@@ -97,8 +97,8 @@ const Soluzioni = () => (
         <p className="mt-4 text-center text-muted-foreground">Ogni percorso parte dalla mappatura operativa. Costi su valutazione.</p>
         <div className="mt-12 grid gap-6 sm:grid-cols-3">
           {[
-            { title: "Automation Sprint", desc: "Un processo critico automatizzato in 14 giorni. Ideale per partire e validare.", features: ["1 flusso n8n completo", "Integrazione 2–3 strumenti", "Documentazione e training", "Supporto 30 giorni"] },
-            { title: "Operations Automation", desc: "Più processi collegati per un sistema operativo completo. Per chi vuole scalare.", features: ["3–5 flussi n8n integrati", "Dashboard KPI", "Ottimizzazione continua", "Supporto dedicato"] },
+            { title: "Automation Sprint", desc: "Un processo critico automatizzato in 14 giorni. Ideale per partire e validare.", features: ["1 flusso di automazione completo", "Integrazione 2–3 strumenti", "Documentazione e training", "Supporto 30 giorni"] },
+            { title: "Operations Automation", desc: "Più processi collegati per un sistema operativo completo. Per chi vuole scalare.", features: ["3–5 flussi automatizzati e integrati", "Dashboard KPI", "Ottimizzazione continua", "Supporto dedicato"] },
             { title: "AGENDO Early Access", desc: "Voice agent per chiamate e appuntamenti. Accesso anticipato su invito.", features: ["Setup voice agent", "Integrazione calendario/CRM", "Training e ottimizzazione", "Evoluzione roadmap inclusa"] },
           ].map(({ title, desc, features }) => (
             <div key={title} className="rounded-xl border border-border/50 bg-card p-8 flex flex-col card-hover">

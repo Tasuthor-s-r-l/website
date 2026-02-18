@@ -193,9 +193,9 @@ const KpiSection = () => (
         {[
           { icon: Timer, label: "Ore risparmiate/settimana" },
           { icon: PhoneCall, label: "Richieste gestite automaticamente" },
-          { icon: Calendar, label: "Appuntamenti confermati" },
-          { icon: Phone, label: "Riduzione chiamate perse" },
-          { icon: Zap, label: "Tempo medio di risposta" },
+          { icon: Workflow, label: "Processi automatizzati" },
+          { icon: Target, label: "Lead seguiti automaticamente" },
+          { icon: Zap, label: "Tempo di implementation" },
         ].map(({ icon: Icon, label }) => (
           <div key={label} className="rounded-lg border border-border/50 bg-card p-5 text-center card-hover">
             <Icon size={24} className="mx-auto text-primary mb-2" />

@@ -5,7 +5,7 @@ import { ArrowRight, Mail, Phone, MapPin } from "lucide-react";
 
 const Contatti = () => {
   const [form, setForm] = useState({
-    nome: "", azienda: "", settore: "", problema: "", strumenti: "", volume: "", email: "", telefono: "",
+    nome: "", azienda: "", settore: "", problema: "", strumenti: "", email: "", telefono: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -35,9 +35,9 @@ const Contatti = () => {
               <h2 className="text-2xl font-bold">Contattaci</h2>
               <div className="space-y-4">
                 {[
-                  { icon: Mail, label: "info@tasuthor.com" },
-                  { icon: Phone, label: "+39 XXX XXX XXXX" },
-                  { icon: MapPin, label: "Italia" },
+                  { icon: Mail, label: "tasuthor@gmail.com" },
+                  { icon: Phone, label: "+39 371 136 9107" },
+                  { icon: MapPin, label: "Gussago (Italia)" },
                 ].map(({ icon: Icon, label }) => (
                   <div key={label} className="flex items-center gap-3 text-sm text-muted-foreground">
                     <Icon size={18} className="text-primary shrink-0" /> {label}
@@ -104,32 +104,16 @@ const Contatti = () => {
                   />
                 </div>
 
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div>
-                    <label className="mb-1.5 block text-xs font-medium text-foreground">Strumenti usati</label>
-                    <input
-                      type="text"
-                      value={form.strumenti}
-                      onChange={(e) => setForm({ ...form, strumenti: e.target.value })}
-                      className="w-full rounded-md border border-border bg-muted px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                      placeholder="CRM, calendario, gestionale..."
-                    />
-                  </div>
-                  <div>
-                    <label className="mb-1.5 block text-xs font-medium text-foreground">Volume chiamate/settimana</label>
-                    <input
-                      type="text"
-                      value={form.volume}
-                      onChange={(e) => setForm({ ...form, volume: e.target.value })}
-                      className="w-full rounded-md border border-border bg-muted px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                      placeholder="Es: 50-100"
-                    />
-                  </div>
+                <div>
+                  <label className="mb-1.5 block text-xs font-medium text-foreground">Strumenti usati</label>
+                  <input
+                    type="text"
+                    value={form.strumenti}
+                    onChange={(e) => setForm({ ...form, strumenti: e.target.value })}
+                    className="w-full rounded-md border border-border bg-muted px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                    placeholder="CRM, calendario, gestionale..."
+                  />
                 </div>
-
-                <p className="text-xs text-muted-foreground">
-                  Ti contattiamo solo per la richiesta. I tuoi dati non vengono condivisi con terze parti.
-                </p>
 
                 <Button variant="hero" size="lg" type="submit" className="w-full sm:w-auto">
                   Prenota la mappatura <ArrowRight size={18} />

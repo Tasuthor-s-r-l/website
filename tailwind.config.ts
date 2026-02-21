@@ -53,6 +53,7 @@ export default {
         },
         "tech-blue": "hsl(var(--tech-blue))",
         teal: "hsl(var(--teal))",
+        whatsapp: "#25D366",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

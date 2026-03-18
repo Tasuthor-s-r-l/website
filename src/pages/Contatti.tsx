@@ -3,15 +3,53 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { ArrowRight, Mail, MapPin } from "lucide-react";
 
+const API_KEY = "elk_GIIHYPYf3-PX8U4NoYflVtJ-P8U5Tu8MMngyowjGPOs";
+const API_ENDPOINT = "https://ai.tasuthor.com/api/v2/public/outbound-call";
+
 const Contatti = () => {
   const [form, setForm] = useState({
-    nome: "", azienda: "", settore: "", problema: "", strumenti: "", email: "", telefono: "",
+    nome: "", azienda: "", settore: "", problema: "", strumenti: "", email: "", telefono: "", data: "",
   });
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // placeholder — in production connect to backend
-    alert("Grazie! Ti contatteremo entro 24 ore per fissare la mappatura.");
+    setLoading(true);
+
+    try {
+      // Effettua la richiesta API
+      const response = await fetch(API_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "accept": "application/json",
+          "Authorization": `${API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          to_number: form.telefono.startsWith("+") ? form.telefono : `+39${form.telefono.replace(/\s/g, "")}`,
+          custom_variables: {
+            customer_name: form.nome,
+            to_number: form.telefono.startsWith("+") ? form.telefono : `+39${form.telefono.replace(/\s/g, "")}`,
+            appointment_date: form.data,
+            azienda: form.azienda,
+            settore: form.settore,
+            email: form.email,
+          },
+        }),
+      });
+
+      if (response.ok) {
+        alert("Grazie! Ti contatteremo entro 24 ore per fissare la mappatura.");
+        setForm({ nome: "", azienda: "", settore: "", problema: "", strumenti: "", email: "", telefono: "", data: "" });
+      } else {
+        alert("Errore nella prenotazione. Riprova più tardi.");
+      }
+    } catch (error) {
+      console.error("Errore API:", error);
+      alert("Errore nella prenotazione. Riprova più tardi.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -82,6 +120,7 @@ const Contatti = () => {
                     { key: "azienda", label: "Azienda", type: "text" },
                     { key: "email", label: "Email", type: "email" },
                     { key: "telefono", label: "Telefono", type: "tel" },
+                    { key: "data", label: "Data appuntamento (suggerita)", type: "date" },
                   ].map(({ key, label, type }) => (
                     <div key={key}>
                       <label className="mb-1.5 block text-xs font-medium text-foreground">{label}</label>
@@ -135,8 +174,8 @@ const Contatti = () => {
                   />
                 </div>
 
-                <Button variant="hero" size="lg" type="submit" className="w-full sm:w-auto">
-                  Prenota la mappatura <ArrowRight size={18} />
+                <Button variant="hero" size="lg" type="submit" className="w-full sm:w-auto" disabled={loading}>
+                  {loading ? "Prenotazione in corso..." : "Prenota la mappatura"} <ArrowRight size={18} />
                 </Button>
               </form>
             </div>

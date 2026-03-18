@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { ArrowRight, Mail, MapPin } from "lucide-react";
 
-const WEBHOOK_URL = "https://n8n.tasuthor.com/webhook-test/b2cca37c-13ba-4c2a-9c1f-19c079e0c9aa";
+const WEBHOOK_URL = "https://n8n.tasuthor.com/webhook/b2cca37c-13ba-4c2a-9c1f-19c079e0c9aa";
 
 const Contatti = () => {
   const [form, setForm] = useState({

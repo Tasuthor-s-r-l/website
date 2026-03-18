@@ -3,8 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { ArrowRight, Mail, MapPin } from "lucide-react";
 
-const API_KEY = "elk_GIIHYPYf3-PX8U4NoYflVtJ-P8U5Tu8MMngyowjGPOs";
-const API_ENDPOINT = "https://ai.tasuthor.com/api/v2/public/outbound-call";
+const WEBHOOK_URL = "https://n8n.tasuthor.com/webhook-test/b2cca37c-13ba-4c2a-9c1f-19c079e0c9aa";
 
 const Contatti = () => {
   const [form, setForm] = useState({
@@ -17,24 +16,21 @@ const Contatti = () => {
     setLoading(true);
 
     try {
-      // Effettua la richiesta API
-      const response = await fetch(API_ENDPOINT, {
+      // Effettua la richiesta al webhook n8n
+      const response = await fetch(WEBHOOK_URL, {
         method: "POST",
         headers: {
-          "accept": "application/json",
-          "Authorization": `${API_KEY}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          to_number: form.telefono.startsWith("+") ? form.telefono : `+39${form.telefono.replace(/\s/g, "")}`,
-          custom_variables: {
-            customer_name: form.nome,
-            to_number: form.telefono.startsWith("+") ? form.telefono : `+39${form.telefono.replace(/\s/g, "")}`,
-            appointment_date: form.data,
-            azienda: form.azienda,
-            settore: form.settore,
-            email: form.email,
-          },
+          nome: form.nome,
+          azienda: form.azienda,
+          settore: form.settore,
+          problema: form.problema,
+          strumenti: form.strumenti,
+          email: form.email,
+          telefono: form.telefono,
+          data: form.data,
         }),
       });
 
@@ -45,7 +41,7 @@ const Contatti = () => {
         alert("Errore nella prenotazione. Riprova più tardi.");
       }
     } catch (error) {
-      console.error("Errore API:", error);
+      console.error("Errore webhook:", error);
       alert("Errore nella prenotazione. Riprova più tardi.");
     } finally {
       setLoading(false);

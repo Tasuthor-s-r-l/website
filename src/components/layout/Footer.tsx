@@ -10,8 +10,8 @@ const Footer = () => (
             <img src="/tasuthor.svg" alt="Tasuthor" className="h-14 w-auto" />
           </Link>
           <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-            AI Operational Systems Company.<br />
-            Automazioni operative per PMI.
+            Non vendiamo software.<br />
+            Creiamo sistemi automatici che lavorano per te.
           </p>
         </div>
 

@@ -7,7 +7,7 @@ const WEBHOOK_URL = "https://n8n.tasuthor.com/webhook/b2cca37c-13ba-4c2a-9c1f-19
 
 const Contatti = () => {
   const [form, setForm] = useState({
-    nome: "", azienda: "", settore: "", problema: "", strumenti: "", email: "", telefono: "", data: "",
+    nome: "", email: "", telefono: "", settore: "", problema: "",
   });
   const [loading, setLoading] = useState(false);
 
@@ -24,19 +24,16 @@ const Contatti = () => {
         },
         body: JSON.stringify({
           nome: form.nome,
-          azienda: form.azienda,
-          settore: form.settore,
-          problema: form.problema,
-          strumenti: form.strumenti,
           email: form.email,
           telefono: form.telefono,
-          data: form.data,
+          settore: form.settore,
+          problema: form.problema,
         }),
       });
 
       if (response.ok) {
         alert("Grazie! Ti contatteremo entro 24 ore per fissare la mappatura.");
-        setForm({ nome: "", azienda: "", settore: "", problema: "", strumenti: "", email: "", telefono: "", data: "" });
+        setForm({ nome: "", email: "", telefono: "", settore: "", problema: "" });
       } else {
         alert("Errore nella prenotazione. Riprova più tardi.");
       }
@@ -100,9 +97,9 @@ const Contatti = () => {
               </div>
 
               <div className="rounded-lg border border-border/50 bg-card p-6">
-                <h3 className="font-semibold text-sm">Calendario</h3>
+                <h3 className="font-semibold text-sm">Oppure prenota direttamente</h3>
                 <p className="mt-2 text-xs text-muted-foreground">
-                  Embed calendario in arrivo. Per ora, compila il form e ti proporremo uno slot entro 24h.
+                  Preferisci un calendario interattivo? Compila il form e ti contatteremo entro 24h per fissare lo slot.
                 </p>
               </div>
             </div>
@@ -111,24 +108,37 @@ const Contatti = () => {
             <div className="md:col-span-2">
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid gap-4 sm:grid-cols-2">
-                  {[
-                    { key: "nome", label: "Nome e cognome", type: "text" },
-                    { key: "azienda", label: "Azienda", type: "text" },
-                    { key: "email", label: "Email", type: "email" },
-                    { key: "telefono", label: "Telefono", type: "tel" },
-                    { key: "data", label: "Data appuntamento (suggerita)", type: "date" },
-                  ].map(({ key, label, type }) => (
-                    <div key={key}>
-                      <label className="mb-1.5 block text-xs font-medium text-foreground">{label}</label>
-                      <input
-                        type={type}
-                        required
-                        value={(form as any)[key]}
-                        onChange={(e) => setForm({ ...form, [key]: e.target.value })}
-                        className="w-full rounded-md border border-border bg-muted px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                      />
-                    </div>
-                  ))}
+                  <div>
+                    <label className="mb-1.5 block text-xs font-medium text-foreground">Nome e cognome</label>
+                    <input
+                      type="text"
+                      required
+                      value={form.nome}
+                      onChange={(e) => setForm({ ...form, nome: e.target.value })}
+                      className="w-full rounded-md border border-border bg-muted px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                    />
+                  </div>
+                  <div>
+                    <label className="mb-1.5 block text-xs font-medium text-foreground">Telefono</label>
+                    <input
+                      type="tel"
+                      required
+                      value={form.telefono}
+                      onChange={(e) => setForm({ ...form, telefono: e.target.value })}
+                      placeholder="+39 333 000 0000"
+                      className="w-full rounded-md border border-border bg-muted px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                    />
+                  </div>
+                  <div className="sm:col-span-2">
+                    <label className="mb-1.5 block text-xs font-medium text-foreground">Email</label>
+                    <input
+                      type="email"
+                      required
+                      value={form.email}
+                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      className="w-full rounded-md border border-border bg-muted px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                    />
+                  </div>
                 </div>
 
                 <div>
@@ -137,8 +147,9 @@ const Contatti = () => {
                     value={form.settore}
                     onChange={(e) => setForm({ ...form, settore: e.target.value })}
                     className="w-full rounded-md border border-border bg-muted px-3 py-2.5 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                    required
                   >
-                    <option value="">Seleziona...</option>
+                    <option value="">Seleziona il tuo settore...</option>
                     <option>CAF / Servizi</option>
                     <option>Hospitality / B&B</option>
                     <option>Studio professionale</option>
@@ -149,24 +160,14 @@ const Contatti = () => {
                 </div>
 
                 <div>
-                  <label className="mb-1.5 block text-xs font-medium text-foreground">Problema principale</label>
+                  <label className="mb-1.5 block text-xs font-medium text-foreground">Qual è la tua principale sfida operativa?</label>
                   <textarea
                     rows={3}
                     value={form.problema}
                     onChange={(e) => setForm({ ...form, problema: e.target.value })}
                     className="w-full rounded-md border border-border bg-muted px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary resize-none"
-                    placeholder="Descrivi brevemente il processo o la sfida principale..."
-                  />
-                </div>
-
-                <div>
-                  <label className="mb-1.5 block text-xs font-medium text-foreground">Strumenti usati</label>
-                  <input
-                    type="text"
-                    value={form.strumenti}
-                    onChange={(e) => setForm({ ...form, strumenti: e.target.value })}
-                    className="w-full rounded-md border border-border bg-muted px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                    placeholder="CRM, calendario, gestionale..."
+                    placeholder="Es: Gestisci tante chiamate senza una struttura, oppure gli appuntamenti sono su WhatsApp..."
+                    required
                   />
                 </div>
 

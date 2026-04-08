@@ -14,16 +14,16 @@ const HeroSection = () => (
     </div>
     <div className="container relative z-10">
       <div className="mx-auto max-w-3xl text-center">
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs font-medium text-accent-foreground">
-          <Bot size={14} className="text-accent" />
-          Accesso anticipato AGENDO — su invito (posti limitati)
+        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium text-foreground">
+          <Workflow size={14} className="text-primary" />
+          Automazioni operative per PMI · Brescia e province
         </div>
         <h1 className="text-4xl font-bold tracking-tight md:text-6xl leading-tight">
-          Sistemi operativi AI<br />
-          <span className="text-gradient-brand">per PMI che producono</span>
+          Smetti di rincorrere<br />
+          <span className="text-gradient-brand">il lavoro manuale</span>
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-          Implementiamo automazioni di processo con AI. Gestiamo chiamate e appuntamenti con AGENDO, il nostro voice agent. Risultati misurabili, messa in produzione rapida.
+          Costruiamo sistemi automatici che gestiscono i processi ripetitivi della tua attività — follow-up, appuntamenti, CRM, report — così il tuo team si concentra sul lavoro che crea valore.
         </p>
         <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
           <Link to="/contatti">
@@ -40,9 +40,9 @@ const HeroSection = () => (
         </div>
         <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-3">
           {[
-            { icon: Clock, label: "Ore di lavoro manuale risparmiate" },
-            { icon: PhoneCall, label: "Chiamate gestite automaticamente" },
-            { icon: Workflow, label: "Processi ordinati e misurabili" },
+            { icon: Clock, label: "8–15 ore/settimana risparmiate" },
+            { icon: PhoneCall, label: "Operativo in 7–14 giorni" },
+            { icon: Workflow, label: "Funziona con i tuoi strumenti" },
           ].map(({ icon: Icon, label }) => (
             <div key={label} className="flex items-center gap-3 rounded-lg border border-border/50 bg-card/50 p-4 backdrop-blur-sm">
               <Icon size={20} className="shrink-0 text-primary" />
@@ -60,17 +60,17 @@ const ProblemaSection = () => (
   <section className="py-20 bg-gradient-dark">
     <div className="container">
       <div className="mx-auto max-w-3xl text-center">
-        <h2 className="text-3xl font-bold md:text-4xl">Il problema che risolviamo</h2>
+        <h2 className="text-3xl font-bold md:text-4xl">Riconosci qualcuno di questi?</h2>
         <p className="mt-4 text-muted-foreground leading-relaxed">
-          Entriamo dove si perde tempo. Ogni giorno, attività ripetitive sottraggono ore al lavoro che conta davvero.
+          Ogni giorno attività ripetitive rubano ore al lavoro che conta davvero. Non è un problema di impegno — è un problema di sistema.
         </p>
       </div>
       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {[
-          { icon: Phone, text: "Chiamate perse o non ricontattate" },
-          { icon: Calendar, text: "Appuntamenti gestiti a mano" },
-          { icon: Target, text: "Lead non ricontattati in tempo" },
-          { icon: Workflow, text: "Strumenti scollegati tra loro" },
+          { icon: Target, text: "Hai mandato un preventivo 3 giorni fa e non hai ancora fatto il follow-up" },
+          { icon: Workflow, text: "CRM, calendario e gestionale non si parlano — aggiorni tutto a mano" },
+          { icon: BarChart3, text: "I report li fai tu, ogni settimana, ricopiando dati da posti diversi" },
+          { icon: Phone, text: "Il telefono suona mentre sei con un cliente — la chiamata va persa" },
         ].map(({ icon: Icon, text }) => (
           <div key={text} className="rounded-lg border border-border/50 bg-card p-6 card-hover">
             <Icon size={24} className="text-destructive mb-3" />
@@ -78,6 +78,9 @@ const ProblemaSection = () => (
           </div>
         ))}
       </div>
+      <p className="mt-8 text-center text-sm text-muted-foreground">
+        Se hai risposto sì anche a uno solo — stai perdendo tempo e clienti ogni giorno.
+      </p>
     </div>
   </section>
 );
@@ -86,36 +89,111 @@ const ProblemaSection = () => (
 const CosaFacciamoSection = () => (
   <section className="py-20">
     <div className="container">
-      <h2 className="text-center text-3xl font-bold md:text-4xl">Cosa facciamo</h2>
-      <div className="mt-12 grid gap-8 md:grid-cols-2">
-        <div className="rounded-xl border border-border/50 bg-gradient-teal p-8">
-          <Workflow size={32} className="text-tech-blue mb-4" />
-          <h3 className="text-xl font-semibold">Automazioni di processo</h3>
+      <h2 className="text-center text-3xl font-bold md:text-4xl">Ecco cosa facciamo, concretamente</h2>
+      <p className="mt-4 text-center text-muted-foreground max-w-2xl mx-auto">
+        Non vendiamo software. Costruiamo sistemi automatici su misura per la tua attività, integrati con gli strumenti che già usi.
+      </p>
+      <div className="mt-12 grid gap-6 lg:grid-cols-3">
+        {/* Card principale automazioni — occupa 2/3 */}
+        <div className="lg:col-span-2 rounded-xl border border-primary/30 bg-gradient-teal p-8">
+          <div className="flex items-center gap-3 mb-4">
+            <Workflow size={32} className="text-tech-blue" />
+            <span className="text-xs font-medium text-primary bg-primary/10 rounded-full px-3 py-1">Servizio principale</span>
+          </div>
+          <h3 className="text-xl font-semibold">Automazioni di processo operative</h3>
           <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-            Colleghiamo CRM, calendari, gestionali e strumenti già in uso. Costruiamo flussi automatici: dal lead al follow-up, dalla richiesta allo smistamento, dai reminder agli appuntamenti.
+            Il tuo CRM si aggiorna da solo. I follow-up partono in automatico. I report li genera il sistema. Colleghiamo i tuoi strumenti e costruiamo flussi che lavorano per te — anche quando sei occupato.
           </p>
-          <ul className="mt-4 space-y-2">
-            {["Lead → follow-up → appuntamento", "Raccolta dati → smistamento automatico", "Report periodici automatici", "Reminder e notifiche intelligenti"].map((t) => (
-              <li key={t} className="flex items-center gap-2 text-sm text-foreground">
-                <CheckCircle2 size={14} className="text-tech-blue shrink-0" /> {t}
+          <div className="mt-5 grid gap-2 sm:grid-cols-2">
+            {[
+              "Nuovo lead → follow-up → appuntamento",
+              "Preventivo inviato → reminder automatico → conferma",
+              "Modulo compilato → smistamento → notifica al team",
+              "Report settimanale generato e inviato in automatico",
+              "CRM ↔ calendario ↔ gestionale sincronizzati",
+              "Reminder pre-appuntamento e follow-up post-visita",
+            ].map((t) => (
+              <li key={t} className="flex items-start gap-2 text-sm text-foreground list-none">
+                <CheckCircle2 size={14} className="text-tech-blue shrink-0 mt-0.5" /> {t}
               </li>
             ))}
-          </ul>
+          </div>
+          <p className="mt-5 text-xs text-muted-foreground">
+            Risparmio tipico: <strong className="text-foreground">8–15 ore/settimana</strong> · Setup in <strong className="text-foreground">7–14 giorni</strong>
+          </p>
         </div>
-        <div className="rounded-xl border border-border/50 bg-gradient-accent p-8">
-          <Bot size={32} className="text-accent mb-4" />
-          <h3 className="text-xl font-semibold">Automazioni telefoniche con AGENDO</h3>
+        {/* Card secondaria AGENDO */}
+        <div className="rounded-xl border border-accent/30 bg-gradient-accent p-8">
+          <div className="flex items-center gap-3 mb-4">
+            <Bot size={28} className="text-accent" />
+            <span className="text-xs font-medium text-accent bg-accent/10 rounded-full px-3 py-1">Add-on</span>
+          </div>
+          <h3 className="text-xl font-semibold">AGENDO — Voice Agent</h3>
           <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-            Il nostro voice agent gestisce chiamate inbound e outbound, prende appuntamenti, raccoglie informazioni e si integra con i tuoi sistemi via API.
+            Per chi ha un alto volume di telefonate. AGENDO risponde, qualifica e prende appuntamenti al posto tuo, 24/7.
           </p>
           <ul className="mt-4 space-y-2">
-            {["Gestione chiamate inbound 24/7", "Campagne outbound automatiche", "Prenotazione e rebooking appuntamenti", "Routing e integrazione CRM"].map((t) => (
+            {["Risponde alle chiamate inbound", "Conferme e reminder via telefono", "Prenota appuntamenti in autonomia", "Si integra con CRM e calendario"].map((t) => (
               <li key={t} className="flex items-center gap-2 text-sm text-foreground">
                 <CheckCircle2 size={14} className="text-accent shrink-0" /> {t}
               </li>
             ))}
           </ul>
+          <p className="mt-5 text-xs text-muted-foreground">Per CAF, hospitality, studi professionali.</p>
         </div>
+      </div>
+    </div>
+  </section>
+);
+
+/* ─── SOCIAL PROOF ─── */
+const SocialProofSection = () => (
+  <section className="py-20">
+    <div className="container">
+      <div className="mx-auto max-w-3xl text-center">
+        <h2 className="text-3xl font-bold md:text-4xl">Chi l'ha già fatto</h2>
+        <p className="mt-4 text-muted-foreground">PMI che hanno automatizzato i loro processi operativi</p>
+      </div>
+      <div className="mt-12 grid gap-6 md:grid-cols-3">
+        {[
+          {
+            sector: "Studio commercialista",
+            before: "3 ore/giorno su gestione appuntamenti e reminder",
+            after: "+40% appuntamenti confermati, zero no-show",
+            location: "Brescia"
+          },
+          {
+            sector: "B&B / Hospitality",
+            before: "Risposte manuali a prenotazioni e info 24/7",
+            after: "Risposta automatica in 30 secondi, sempre disponibile",
+            location: "Lombardia"
+          },
+          {
+            sector: "CAF",
+            before: "100+ telefonate al giorno per stato pratiche",
+            after: "Gestite da AGENDO, personale si concentra su consulenza",
+            location: "Nord Italia"
+          },
+        ].map(({ sector, before, after, location }) => (
+          <div key={sector} className="rounded-lg border border-border/50 bg-card p-6">
+            <p className="text-xs font-medium text-accent mb-2">{sector} • {location}</p>
+            <div className="space-y-3">
+              <div>
+                <p className="text-xs text-muted-foreground font-medium mb-1">Prima</p>
+                <p className="text-sm text-foreground">"{before}"</p>
+              </div>
+              <div>
+                <p className="text-xs text-muted-foreground font-medium mb-1">Dopo</p>
+                <p className="text-sm text-foreground font-medium text-green-500">{after}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="mt-8 text-center">
+        <p className="text-sm text-muted-foreground">
+          I risultati variano in base al contesto. Prenota una mappatura per capire cosa è possibile nel tuo caso.
+        </p>
       </div>
     </div>
   </section>
@@ -187,19 +265,20 @@ const ProcessoSection = () => (
 const KpiSection = () => (
   <section className="py-20 bg-gradient-dark">
     <div className="container">
-      <h2 className="text-center text-3xl font-bold md:text-4xl">Risultati misurabili</h2>
-      <p className="mt-4 text-center text-muted-foreground">Ogni progetto parte con una baseline e misura il prima/dopo.</p>
+      <h2 className="text-center text-3xl font-bold md:text-4xl">I numeri tipici dei nostri progetti</h2>
+      <p className="mt-4 text-center text-muted-foreground">I risultati variano in base al contesto. La mappatura gratuita ti dà una stima realistica per la tua situazione.</p>
       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
         {[
-          { icon: Timer, label: "Ore risparmiate/settimana" },
-          { icon: PhoneCall, label: "Richieste gestite automaticamente" },
-          { icon: Workflow, label: "Processi automatizzati" },
-          { icon: Target, label: "Lead seguiti automaticamente" },
-          { icon: Zap, label: "Tempo di implementation" },
-        ].map(({ icon: Icon, label }) => (
+          { icon: Timer, label: "8–15 ore/settimana", value: "risparmiate" },
+          { icon: PhoneCall, label: "7–14 giorni", value: "go live" },
+          { icon: Workflow, label: "< 60 giorni", value: "ROI" },
+          { icon: Zap, label: "400+", value: "app integrabili" },
+          { icon: Users, label: "24/7", value: "con AGENDO" },
+        ].map(({ icon: Icon, label, value }) => (
           <div key={label} className="rounded-lg border border-border/50 bg-card p-5 text-center card-hover">
             <Icon size={24} className="mx-auto text-primary mb-2" />
-            <p className="text-sm font-medium text-foreground">{label}</p>
+            <p className="text-lg font-bold text-foreground">{label}</p>
+            <p className="mt-1 text-xs text-muted-foreground">{value}</p>
           </div>
         ))}
       </div>
@@ -331,6 +410,7 @@ const Index = () => (
     <HeroSection />
     <ProblemaSection />
     <CosaFacciamoSection />
+    <SocialProofSection />
     <AgendoPreview />
     <ProcessoSection />
     <KpiSection />

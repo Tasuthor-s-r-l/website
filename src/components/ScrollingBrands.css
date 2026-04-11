@@ -1,5 +1,20 @@
 /* Scrolling Brands Animation */
 
+/* ─── EFFETTO WOW: Fade-in + Scale al caricamento ─── */
+@keyframes brand-pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.85) translateY(8px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
 /* Keyframe per scorrimento infinito lento da destra a sinistra */
 @keyframes scroll-left {
   0% {
@@ -10,7 +25,49 @@
   }
 }
 
-/* Container della traccia */
+/* Keyframe per scorrimento infinito VELOCE (effetto WOW entry) */
+@keyframes scroll-left-wow {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50%));
+  }
+}
+
+/* Container della traccia - versione WOW con glow sottile */
+.scrolling-brands-track-wow {
+  display: flex;
+  gap: 0.75rem;
+  animation: scroll-left-wow 42s linear infinite;
+  width: fit-content;
+  will-change: transform;
+}
+
+/* Versione che NON si ferma al hover */
+.scrolling-brands-track-wow.scrolling-brands-no-pause:hover {
+  animation-play-state: running;
+}
+
+/* Item singolo nella traccia con effetto pop-in */
+.scrolling-brands-item-wow {
+  flex-shrink: 0;
+  min-width: fit-content;
+  animation: brand-pop-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  opacity: 0;
+}
+
+.scrolling-brands-item-wow > div {
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.scrolling-brands-item-wow > div:hover {
+  transform: translateY(-1px);
+  border-color: hsl(var(--primary) / 0.35);
+  box-shadow: 0 8px 24px hsl(var(--primary) / 0.18);
+}
+
+/* Variante non-WOW (legacy) */
 .scrolling-brands-track {
   display: flex;
   gap: 1rem;
@@ -55,12 +112,14 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .scrolling-brands-track {
+  .scrolling-brands-track,
+  .scrolling-brands-track-wow {
     gap: 0.5rem;
-    animation-duration: 40s;
+    animation-duration: 34s;
   }
 
-  .scrolling-brands-item {
+  .scrolling-brands-item,
+  .scrolling-brands-item-wow {
     min-width: fit-content;
   }
 }

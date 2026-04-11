@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Phone, Clock, Zap, ArrowRight, Calendar, BarChart3, PhoneCall, Bot, Workflow, CheckCircle2, Users, Target, Timer, ShieldCheck, HelpCircle, ChevronDown } from "lucide-react";
+import { Phone, Clock, Zap, ArrowRight, Calendar, BarChart3, PhoneCall, Bot, Workflow, CheckCircle2, Users, Target, Timer, ShieldCheck, HelpCircle, ChevronDown, FileText, Smartphone, MessageSquare, Code2, Mic2, Zap as ZapIcon } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import Layout from "@/components/layout/Layout";
 import { useState } from "react";
@@ -8,7 +8,7 @@ import { ScrollingBrands } from "@/components/ScrollingBrands";
 
 /* ─── HERO ─── */
 const HeroSection = () => (
-  <section className="relative overflow-hidden py-24 md:py-32">
+  <section className="relative overflow-hidden pt-16 pb-10 md:pt-20 md:pb-12">
     <div className="absolute inset-0 z-0">
       <img src={heroBg} alt="" className="h-full w-full object-cover opacity-40" />
       <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
@@ -17,40 +17,57 @@ const HeroSection = () => (
       <div className="mx-auto max-w-3xl text-center">
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium text-foreground">
           <Workflow size={14} className="text-primary" />
-          Automazioni operative per PMI · Brescia e province
+          Automazioni operative per PMI · Brescia e provincia
         </div>
         <h1 className="text-4xl font-bold tracking-tight md:text-6xl leading-tight">
           Smetti di rincorrere<br />
           <span className="text-gradient-brand">il lavoro manuale</span>
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-          Costruiamo sistemi automatici che gestiscono i processi ripetitivi della tua attività — follow-up, appuntamenti, CRM, report — così il tuo team si concentra sul lavoro che crea valore.
+          Automazioni AI su misura per PMI italiane: dalla risposta ai lead alla qualificazione vendite, fino alla raccolta documenti. Senza che il tuo team debba toccare una riga di codice.
         </p>
         <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
           <Link to="/contatti">
             <Button variant="hero" size="lg">
-              Prenota una mappatura (30 min)
+              Prenota una call di analisi gratuita
               <ArrowRight size={18} />
             </Button>
           </Link>
           <Link to="/soluzioni">
             <Button variant="heroOutline" size="lg">
-              Vedi cosa possiamo automatizzare
+              Scopri cosa possiamo automatizzare per te
             </Button>
           </Link>
         </div>
-        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-3">
-          {[
-            { icon: Clock, label: "8–15 ore/settimana risparmiate" },
-            { icon: PhoneCall, label: "Operativo in 7–14 giorni" },
-            { icon: Workflow, label: "Funziona con i tuoi strumenti" },
-          ].map(({ icon: Icon, label }) => (
-            <div key={label} className="flex items-center gap-3 rounded-lg border border-border/50 bg-card/50 p-4 backdrop-blur-sm">
-              <Icon size={20} className="shrink-0 text-primary" />
-              <span className="text-sm text-foreground">{label}</span>
-            </div>
-          ))}
-        </div>
+      </div>
+    </div>
+  </section>
+);
+
+/* ─── CHI SIAMO ─── */
+const ChiSiamoSection = () => (
+  <section className="py-14 md:py-16 bg-gradient-dark">
+    <div className="container">
+      <div className="mx-auto max-w-3xl text-center">
+        <h2 className="text-3xl font-bold md:text-4xl">Non siamo un'agenzia. Siamo il reparto tech che la tua azienda non ha ancora.</h2>
+        <p className="mx-auto mt-6 max-w-2xl text-muted-foreground leading-relaxed">
+          Tasuthor progetta e costruisce sistemi di automazione AI che si integrano con i tuoi strumenti esistenti — CRM, email, WhatsApp, fogli di calcolo — e li trasforma in macchine operative che lavorano 24/7. Il nostro obiettivo non è venderti tecnologia, ma restituirti tempo.
+        </p>
+      </div>
+      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {[
+          { icon: FileText, label: "Raccolta Documenti Intelligente" },
+          { icon: Smartphone, label: "Automazioni Multi-piattaforma" },
+          { icon: MessageSquare, label: "Social Media Automation" },
+          { icon: Workflow, label: "Workflow Personalizzati con n8n" },
+          { icon: Phone, label: "Agenti AI Vocali (Lead Response 24/7)" },
+          { icon: Target, label: "Qualificazione Vendite Automatica (AGENDO)" },
+        ].map(({ icon: Icon, label }) => (
+          <div key={label} className="flex items-center gap-3 rounded-lg border border-border/50 bg-card p-5">
+            <Icon size={20} className="shrink-0 text-primary" />
+            <span className="text-sm font-medium text-foreground">{label}</span>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -58,7 +75,7 @@ const HeroSection = () => (
 
 /* ─── PROBLEMA ─── */
 const ProblemaSection = () => (
-  <section className="py-20 bg-gradient-dark">
+  <section className="py-14 md:py-16 bg-gradient-dark">
     <div className="container">
       <div className="mx-auto max-w-3xl text-center">
         <h2 className="text-3xl font-bold md:text-4xl">Riconosci qualcuno di questi?</h2>
@@ -88,60 +105,51 @@ const ProblemaSection = () => (
 
 /* ─── COSA FACCIAMO ─── */
 const CosaFacciamoSection = () => (
-  <section className="py-20">
+  <section className="py-14 md:py-16">
     <div className="container">
-      <h2 className="text-center text-3xl font-bold md:text-4xl">Ecco cosa facciamo, concretamente</h2>
-      <p className="mt-4 text-center text-muted-foreground max-w-2xl mx-auto">
-        Non vendiamo software. Costruiamo sistemi automatici su misura per la tua attività, integrati con gli strumenti che già usi.
-      </p>
+      <h2 className="text-center text-3xl font-bold md:text-4xl">Cosa facciamo</h2>
       <div className="mt-12 grid gap-6 lg:grid-cols-3">
-        {/* Card principale automazioni — occupa 2/3 */}
-        <div className="lg:col-span-2 rounded-xl border border-primary/30 bg-gradient-teal p-8">
-          <div className="flex items-center gap-3 mb-4">
-            <Workflow size={32} className="text-tech-blue" />
-            <span className="text-xs font-medium text-primary bg-primary/10 rounded-full px-3 py-1">Servizio principale</span>
+        {[
+          {
+            title: "Automazioni Operative Su Misura",
+            problem: "Ogni azienda ha processi unici che nessun software standard può coprire.",
+            solution: "Progettiamo workflow personalizzati che collegano i tuoi strumenti (Google Sheets, Drive, CRM, Telegram, WhatsApp) in un sistema unico e automatico.",
+            icon: Workflow,
+          },
+          {
+            title: "Raccolta Documenti Senza Stress",
+            problem: "Raccogliere documenti dai clienti è un inferno di email, reminder, file persi e formati sbagliati.",
+            solution: "Un workflow automatico invia richieste personalizzate, raccoglie i file, li organizza e notifica il team quando tutto è completo.",
+            icon: FileText,
+          },
+          {
+            title: "Risposta Lead Immediata",
+            problem: "Un lead compila un form alle 22:00. Nessuno risponde fino alle 9 del mattino dopo. Il lead è già andato dalla concorrenza.",
+            solution: "Un agente AI vocale risponde in <60 secondi, qualifica il lead e prenota un appuntamento nel calendario del venditore.",
+            badge: "+300% tasso di conversione lead",
+            icon: Phone,
+          },
+        ].map(({ title, problem, solution, badge, icon: Icon }) => (
+          <div key={title} className="rounded-xl border border-border/50 bg-card p-6">
+            <Icon size={28} className="text-primary mb-4" />
+            <h3 className="text-lg font-semibold">{title}</h3>
+            <div className="mt-4 space-y-3">
+              <div>
+                <p className="text-xs font-medium text-destructive mb-1">Problema</p>
+                <p className="text-sm text-muted-foreground">"{problem}"</p>
+              </div>
+              <div>
+                <p className="text-xs font-medium text-primary mb-1">Soluzione Tasuthor</p>
+                <p className="text-sm text-foreground">{solution}</p>
+              </div>
+              {badge && (
+                <div className="mt-3 pt-3 border-t border-border/50">
+                  <span className="inline-block text-xs font-medium text-accent bg-accent/10 rounded-full px-3 py-1">{badge}</span>
+                </div>
+              )}
+            </div>
           </div>
-          <h3 className="text-xl font-semibold">Automazioni di processo operative</h3>
-          <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-            Il tuo CRM si aggiorna da solo. I follow-up partono in automatico. I report li genera il sistema. Colleghiamo i tuoi strumenti e costruiamo flussi che lavorano per te — anche quando sei occupato.
-          </p>
-          <div className="mt-5 grid gap-2 sm:grid-cols-2">
-            {[
-              "Nuovo lead → follow-up → appuntamento",
-              "Preventivo inviato → reminder automatico → conferma",
-              "Modulo compilato → smistamento → notifica al team",
-              "Report settimanale generato e inviato in automatico",
-              "CRM ↔ calendario ↔ gestionale sincronizzati",
-              "Reminder pre-appuntamento e follow-up post-visita",
-            ].map((t) => (
-              <li key={t} className="flex items-start gap-2 text-sm text-foreground list-none">
-                <CheckCircle2 size={14} className="text-tech-blue shrink-0 mt-0.5" /> {t}
-              </li>
-            ))}
-          </div>
-          <p className="mt-5 text-xs text-muted-foreground">
-            Risparmio tipico: <strong className="text-foreground">8–15 ore/settimana</strong> · Setup in <strong className="text-foreground">7–14 giorni</strong>
-          </p>
-        </div>
-        {/* Card secondaria AGENDO */}
-        <div className="rounded-xl border border-accent/30 bg-gradient-accent p-8">
-          <div className="flex items-center gap-3 mb-4">
-            <Bot size={28} className="text-accent" />
-            <span className="text-xs font-medium text-accent bg-accent/10 rounded-full px-3 py-1">Add-on</span>
-          </div>
-          <h3 className="text-xl font-semibold">AGENDO — Voice Agent</h3>
-          <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-            Per chi ha un alto volume di telefonate. AGENDO risponde, qualifica e prende appuntamenti al posto tuo, 24/7.
-          </p>
-          <ul className="mt-4 space-y-2">
-            {["Risponde alle chiamate inbound", "Conferme e reminder via telefono", "Prenota appuntamenti in autonomia", "Si integra con CRM e calendario"].map((t) => (
-              <li key={t} className="flex items-center gap-2 text-sm text-foreground">
-                <CheckCircle2 size={14} className="text-accent shrink-0" /> {t}
-              </li>
-            ))}
-          </ul>
-          <p className="mt-5 text-xs text-muted-foreground">Per CAF, hospitality, studi professionali.</p>
-        </div>
+        ))}
       </div>
     </div>
   </section>
@@ -149,7 +157,7 @@ const CosaFacciamoSection = () => (
 
 /* ─── SOCIAL PROOF ─── */
 const SocialProofSection = () => (
-  <section className="py-20">
+  <section className="py-14 md:py-16">
     <div className="container">
       <div className="mx-auto max-w-3xl text-center">
         <h2 className="text-3xl font-bold md:text-4xl">Chi l'ha già fatto</h2>
@@ -202,7 +210,7 @@ const SocialProofSection = () => (
 
 /* ─── AGENDO PREVIEW ─── */
 const AgendoPreview = () => (
-  <section className="py-20 bg-gradient-dark">
+  <section className="py-14 md:py-16 bg-gradient-dark">
     <div className="container">
       <div className="mx-auto max-w-3xl text-center">
         <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs font-medium text-accent-foreground">
@@ -240,21 +248,55 @@ const AgendoPreview = () => (
 
 /* ─── PROCESSO ─── */
 const ProcessoSection = () => (
-  <section className="py-20">
+  <section className="py-14 md:py-16">
     <div className="container">
       <h2 className="text-center text-3xl font-bold md:text-4xl">Come lavoriamo</h2>
-      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {[
-          { step: "01", title: "Mappatura operativa", desc: "Call di 30–60 min per capire processi, strumenti e obiettivi.", time: "Giorno 1" },
-          { step: "02", title: "Sprint implementazione", desc: "Costruiamo le automazioni e le integriamo in 7–14 giorni.", time: "Giorni 2–14" },
-          { step: "03", title: "Testing & ottimizzazione", desc: "Testing reale con dati veri, ottimizzazione per 2–4 settimane.", time: "Settimane 2–4" },
-          { step: "04", title: "Estensione & scala", desc: "Nuovi flussi, pacchetti aggiuntivi, continuo miglioramento.", time: "Continuo" },
-        ].map(({ step, title, desc, time }) => (
+          { step: "01", title: "Analisi (Gratis)", desc: "Una call di 30 minuti per capire dove il tuo team perde tempo. Mappiamo i processi, identifichiamo i colli di bottiglia e ti diciamo esattamente cosa possiamo automatizzare — e cosa no." },
+          { step: "02", title: "Progettazione", desc: "Disegniamo l'architettura del sistema, scegliamo gli strumenti giusti e ti presentiamo un piano chiaro con tempi e costi definiti. Nessuna sorpresa." },
+          { step: "03", title: "Costruzione e Consegna", desc: "Sviluppiamo il sistema, lo testiamo in ogni scenario, ti formiamo sull'uso e lo mettiamo in produzione. Poi restiamo disponibili per ottimizzazioni e supporto." },
+        ].map(({ step, title, desc }) => (
           <div key={step} className="relative rounded-lg border border-border/50 bg-card p-6">
             <span className="text-3xl font-bold text-primary/20">{step}</span>
             <h4 className="mt-2 font-semibold">{title}</h4>
             <p className="mt-2 text-sm text-muted-foreground">{desc}</p>
-            <span className="mt-3 inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">{time}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+/* ─── PERCHÉ TASUTHOR ─── */
+const PercheTasuthorSection = () => (
+  <section className="py-14 md:py-16 bg-gradient-dark">
+    <div className="container">
+      <div className="mx-auto max-w-3xl text-center mb-12">
+        <h2 className="text-3xl font-bold md:text-4xl">Perché Tasuthor</h2>
+      </div>
+      <div className="grid gap-6 sm:grid-cols-2">
+        {[
+          {
+            title: "Soluzioni Pronte, Non Solo Custom",
+            desc: "AGENDO e il Voice Agent sono prodotti già funzionanti. Non partiamo da zero: partiamo da qualcosa che funziona già e lo adattiamo a te.",
+          },
+          {
+            title: "Specializzati su PMI Italiane",
+            desc: "Non lavoriamo con enterprise da 500 dipendenti. Lavoriamo con aziende da 5 a 50 persone che hanno bisogno di risultati concreti, non di slide.",
+          },
+          {
+            title: "Comunicazione Diretta",
+            desc: "Parli con chi costruisce il sistema. Niente project manager, niente ticket. WhatsApp, Telegram, call — come preferisci.",
+          },
+          {
+            title: "ROI Misurabile",
+            desc: "Ogni sistema che costruiamo ha KPI chiari: ore risparmiate, lead qualificati, documenti raccolti. Se non possiamo misurarlo, non lo proponiamo.",
+          },
+        ].map(({ title, desc }) => (
+          <div key={title} className="rounded-lg border border-border/50 bg-card p-6">
+            <h3 className="text-lg font-semibold text-primary">{title}</h3>
+            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{desc}</p>
           </div>
         ))}
       </div>
@@ -264,17 +306,17 @@ const ProcessoSection = () => (
 
 /* ─── KPI ─── */
 const KpiSection = () => (
-  <section className="py-20 bg-gradient-dark">
+  <section className="py-14 md:py-16 bg-gradient-dark">
     <div className="container">
-      <h2 className="text-center text-3xl font-bold md:text-4xl">I numeri tipici dei nostri progetti</h2>
-      <p className="mt-4 text-center text-muted-foreground">I risultati variano in base al contesto. La mappatura gratuita ti dà una stima realistica per la tua situazione.</p>
+      <h2 className="text-center text-3xl font-bold md:text-4xl">I numeri del nostro impatto</h2>
+      <p className="mt-4 text-center text-muted-foreground">I risultati variano in base al contesto. La call di analisi gratuita ti dà una stima realistica per la tua situazione.</p>
       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
         {[
-          { icon: Timer, label: "8–15 ore/settimana", value: "risparmiate" },
-          { icon: PhoneCall, label: "7–14 giorni", value: "go live" },
-          { icon: Workflow, label: "< 60 giorni", value: "ROI" },
-          { icon: Zap, label: "400+", value: "app integrabili" },
-          { icon: Users, label: "24/7", value: "con AGENDO" },
+          { icon: Clock, label: "+XXX ore", value: "risparmiate al mese dai clienti" },
+          { icon: Target, label: "XX%", value: "dei lead qualificati convertiti" },
+          { icon: FileText, label: "XXX", value: "documenti raccolti automaticamente (ultimo trimestre)" },
+          { icon: Zap, label: "<60 sec", value: "risposta media del Voice Agent" },
+          { icon: Workflow, label: "XX", value: "workflow attivi 24/7" },
         ].map(({ icon: Icon, label, value }) => (
           <div key={label} className="rounded-lg border border-border/50 bg-card p-5 text-center card-hover">
             <Icon size={24} className="mx-auto text-primary mb-2" />
@@ -289,7 +331,7 @@ const KpiSection = () => (
 
 /* ─── CASI D'USO TEASER ─── */
 const CasiDusoTeaser = () => (
-  <section className="py-20">
+  <section className="py-14 md:py-16">
     <div className="container">
       <h2 className="text-center text-3xl font-bold md:text-4xl">Casi d'uso</h2>
       <div className="mt-12 grid gap-6 sm:grid-cols-3">
@@ -318,7 +360,7 @@ const CasiDusoTeaser = () => (
 
 /* ─── ACCESSO ANTICIPATO ─── */
 const AccessoAnticipatoSection = () => (
-  <section className="py-20 bg-gradient-accent">
+  <section className="py-14 md:py-16 bg-gradient-accent">
     <div className="container">
       <div className="mx-auto max-w-2xl text-center">
         <ShieldCheck size={40} className="mx-auto text-accent mb-4" />
@@ -347,18 +389,18 @@ const AccessoAnticipatoSection = () => (
 
 /* ─── FAQ ─── */
 const faqData = [
-  { q: "Dobbiamo cambiare gli strumenti che usiamo già?", a: "No. Ci integriamo con i tuoi strumenti attuali (CRM, calendario, gestionale) tramite API e automazioni. Non serve cambiare nulla." },
-  { q: "Quanto tempo serve per vedere i primi risultati?", a: "Dipende dalla complessità, ma in genere le prime automazioni sono operative in 7–14 giorni. Risultati misurabili entro 4 settimane." },
-  { q: "AGENDO sostituisce il personale?", a: "No. AGENDO gestisce le attività ripetitive e a basso valore (smistamento chiamate, reminder, raccolta dati), liberando tempo per il lavoro che richiede competenza umana." },
-  { q: "I dati sono al sicuro?", a: "Sì. Applichiamo best practice di sicurezza: accessi controllati, separazione dati tra clienti, logging delle operazioni." },
-  { q: "Possiamo partire con un solo processo?", a: "Assolutamente sì. Anzi, consigliamo di partire da un processo specifico, validare i risultati e poi estendere." },
-  { q: "Quanto costa?", a: "Dipende dal contesto e dalla complessità. La call di mappatura (30 min, gratuita) serve proprio a capire cosa serve e darti una stima chiara." },
+  { q: "Quanto costa?", a: "Prezzo fisso basato sulla complessità. Nessun costo orario. La call di analisi è gratuita." },
+  { q: "Servono competenze tecniche?", a: "No. Consegniamo il sistema funzionante + documentazione + training inclusi." },
+  { q: "Quanto tempo ci vuole?", a: "Automazione singola: 3–7 giorni. Sistema integrato: 2–4 settimane." },
+  { q: "Funziona con gli strumenti che usiamo già?", a: "Sì. Ci integriamo con qualsiasi cosa abbia un'API: Google Workspace, HubSpot, WhatsApp, Telegram, CRM proprietari." },
+  { q: "E se qualcosa si rompe?", a: "I piani Growth e Scale includono monitoraggio proattivo. Interveniamo prima che tu te ne accorga." },
+  { q: "Come misuro il ritorno sull'investimento?", a: "Ogni sistema ha KPI definiti. Report mensili su ore risparmiate, lead gestiti, documenti raccolti." },
 ];
 
 const FaqSection = () => {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
   return (
-    <section className="py-20 bg-gradient-dark">
+    <section className="py-14 md:py-16 bg-gradient-dark">
       <div className="container">
         <h2 className="text-center text-3xl font-bold md:text-4xl">Domande frequenti</h2>
         <div className="mx-auto mt-12 max-w-2xl space-y-3">
@@ -386,20 +428,23 @@ const FaqSection = () => {
 
 /* ─── CTA FINALE ─── */
 const CtaFinale = () => (
-  <section className="py-20">
+  <section className="py-14 md:py-16">
     <div className="container">
       <div className="mx-auto max-w-2xl rounded-2xl border border-primary/30 bg-card p-10 text-center glow-primary">
-        <h2 className="text-3xl font-bold">Prenota una mappatura operativa</h2>
+        <h2 className="text-3xl font-bold">Ogni giorno che passi senza automazione, il tuo team spreca ore. Parliamone.</h2>
         <p className="mt-3 text-muted-foreground">
-          30 minuti per capire dove stai perdendo tempo e come possiamo automatizzare i tuoi processi.
+          Prenota una call di analisi gratuita — 30 minuti, zero impegno
         </p>
         <div className="mt-6">
           <Link to="/contatti">
             <Button variant="hero" size="lg">
-              Prenota ora (30 min, gratuita) <ArrowRight size={18} />
+              Prenota una call di analisi gratuita <ArrowRight size={18} />
             </Button>
           </Link>
         </div>
+        <p className="mt-6 text-sm text-muted-foreground">
+          Oltre XX aziende italiane hanno già automatizzato i loro processi con noi.
+        </p>
       </div>
     </div>
   </section>
@@ -409,12 +454,14 @@ const CtaFinale = () => (
 const Index = () => (
   <Layout>
     <HeroSection />
+    <ScrollingBrands />
+    <ChiSiamoSection />
     <ProblemaSection />
     <CosaFacciamoSection />
     <SocialProofSection />
     <AgendoPreview />
     <ProcessoSection />
-    <ScrollingBrands />
+    <PercheTasuthorSection />
     <KpiSection />
     <CasiDusoTeaser />
     <AccessoAnticipatoSection />

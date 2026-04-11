@@ -94,14 +94,30 @@ const Soluzioni = () => (
     <section className="py-20">
       <div className="container">
         <h2 className="text-center text-3xl font-bold">Pacchetti</h2>
-        <p className="mt-4 text-center text-muted-foreground">Ogni percorso parte dalla mappatura operativa. Costi su valutazione.</p>
+        <p className="mt-4 text-center text-muted-foreground">Ogni percorso parte dalla call di analisi gratuita. Prezzo fisso, comunicato dopo la valutazione.</p>
         <div className="mt-12 grid gap-6 sm:grid-cols-3">
           {[
-            { title: "Automation Sprint", desc: "Un processo critico automatizzato in 14 giorni. Ideale per partire e validare.", features: ["1 flusso di automazione completo", "Integrazione 2–3 strumenti", "Documentazione e training", "Supporto 30 giorni"] },
-            { title: "Operations Automation", desc: "Più processi collegati per un sistema operativo completo. Per chi vuole scalare.", features: ["3–5 flussi automatizzati e integrati", "Dashboard KPI", "Ottimizzazione continua", "Supporto dedicato"] },
-            { title: "AGENDO Early Access", desc: "Voice agent per chiamate e appuntamenti. Accesso anticipato su invito.", features: ["Setup voice agent", "Integrazione calendario/CRM", "Training e ottimizzazione", "Evoluzione roadmap inclusa"] },
-          ].map(({ title, desc, features }) => (
+            {
+              icon: "🟢",
+              title: "Starter — Singola Automazione",
+              desc: "Un workflow automatico per iniziare. Ideale per partire e validare i risultati.",
+              features: ["Un workflow automatico", "Integrazione 2–3 strumenti", "Setup + documentazione", "Supporto 30 giorni"]
+            },
+            {
+              icon: "🔵",
+              title: "Growth — Sistema Integrato",
+              desc: "Voice Agent O AGENDO. Workflow multi-step con logiche avanzate per scalare.",
+              features: ["Voice Agent O AGENDO", "Workflow multi-step avanzati", "Integrazione CRM/Email/WhatsApp completa", "Hosting e monitoraggio inclusi", "Ottimizzazioni mensili", "Supporto prioritario"]
+            },
+            {
+              icon: "🟣",
+              title: "Scale — Ecosistema Completo",
+              desc: "Voice Agent + AGENDO + automazioni. Il sistema completo lead-to-close.",
+              features: ["Voice Agent + AGENDO + automazioni custom", "Sistema lead-to-close completo", "Dashboard KPI monitoraggio", "Formazione team", "Partnership continuativa", "Supporto dedicato"]
+            },
+          ].map(({ icon, title, desc, features }) => (
             <div key={title} className="rounded-xl border border-border/50 bg-card p-8 flex flex-col card-hover">
+              <span className="text-2xl mb-2">{icon}</span>
               <h3 className="text-lg font-semibold">{title}</h3>
               <p className="mt-2 text-sm text-muted-foreground flex-1">{desc}</p>
               <ul className="mt-4 space-y-2">
@@ -117,7 +133,7 @@ const Soluzioni = () => (
         </div>
         <div className="mt-10 text-center">
           <Link to="/contatti">
-            <Button variant="hero" size="lg">Prenota una mappatura <ArrowRight size={18} /></Button>
+            <Button variant="hero" size="lg">Prenota una call di analisi gratuita <ArrowRight size={18} /></Button>
           </Link>
         </div>
       </div>

@@ -43,7 +43,7 @@ const Header = () => {
         <div className="hidden md:block">
           <Link to="/contatti">
             <Button variant="hero" size="sm">
-              Prenota una mappatura
+              Prenota una call gratuita
             </Button>
           </Link>
         </div>
@@ -78,7 +78,7 @@ const Header = () => {
             ))}
             <Link to="/contatti" onClick={() => setMobileOpen(false)} className="mt-2">
               <Button variant="hero" size="sm" className="w-full">
-                Prenota una mappatura
+                Prenota una call gratuita
               </Button>
             </Link>
           </nav>

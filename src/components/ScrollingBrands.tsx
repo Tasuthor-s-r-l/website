@@ -61,36 +61,29 @@ export const ScrollingBrands = () => {
   const brandsList = [...BRANDS, ...BRANDS];
 
   return (
-    <section className="py-16 bg-gradient-to-r from-background via-background to-background overflow-hidden">
+    <section className="relative -mt-2 pb-10 md:-mt-3 md:pb-12 bg-background overflow-hidden z-20">
       <div className="container">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold md:text-4xl mb-4">
-            Strumenti che integriamo
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Colleghiamo le automazioni con 400+ piattaforme e servizi. Questi sono i tool più utilizzati dai nostri clienti.
-          </p>
-        </div>
-
-        {/* Marquee Container */}
-        <div className="relative overflow-hidden">
-          <div className="scrolling-brands-track">
+        <p className="text-sm md:text-base text-muted-foreground mb-4 text-center tracking-wide uppercase">Integriamo con i migliori strumenti</p>
+        {/* Marquee Container con effetto WOW - compatto */}
+        <div className="relative overflow-hidden rounded-xl border border-primary/20 bg-card/30 p-4 shadow-[0_0_40px_hsl(var(--primary)/0.12)] backdrop-blur-md">
+          <div className="scrolling-brands-track-wow scrolling-brands-no-pause">
             {brandsList.map((brand, idx) => (
               <div
                 key={`${brand.name}-${idx}`}
-                className="scrolling-brands-item"
+                className="scrolling-brands-item-wow"
+                style={{ animationDelay: `${idx * 0.05}s` }}
               >
-                <div className="flex items-center gap-3 px-6 py-4 rounded-lg border border-border/30 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-all duration-300 whitespace-nowrap group">
+                <div className="flex items-center gap-2 px-3 py-2 rounded-md border border-border/20 bg-card/50 backdrop-blur whitespace-nowrap select-none">
                   <span className={brand.lightBadge ? "inline-flex h-6 w-6 items-center justify-center rounded-md bg-white" : "inline-flex"}>
                     <svg
-                      className="w-5 h-5 shrink-0 group-hover:scale-110 transition-transform"
+                      className="w-5 h-5 shrink-0"
                       viewBox="0 0 24 24"
                       fill="currentColor"
                       style={{ color: brand.color ?? `#${brand.icon.hex}` }}
                       dangerouslySetInnerHTML={{ __html: brand.icon.svg }}
                     />
                   </span>
-                  <span className="font-medium text-foreground text-sm">
+                  <span className="font-medium text-foreground text-xs">
                     {brand.name}
                   </span>
                 </div>
@@ -98,9 +91,9 @@ export const ScrollingBrands = () => {
             ))}
           </div>
 
-          {/* Gradient masks per effetto fade */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+          {/* Gradient masks per effetto fade - più sottili */}
+          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
         </div>
       </div>
     </section>

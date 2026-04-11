@@ -4,6 +4,7 @@ import { Phone, Clock, Zap, ArrowRight, Calendar, BarChart3, PhoneCall, Bot, Wor
 import heroBg from "@/assets/hero-bg.jpg";
 import Layout from "@/components/layout/Layout";
 import { useState } from "react";
+import { ScrollingBrands } from "@/components/ScrollingBrands";
 
 /* ─── HERO ─── */
 const HeroSection = () => (
@@ -413,6 +414,7 @@ const Index = () => (
     <SocialProofSection />
     <AgendoPreview />
     <ProcessoSection />
+    <ScrollingBrands />
     <KpiSection />
     <CasiDusoTeaser />
     <AccessoAnticipatoSection />

@@ -1,0 +1,80 @@
+/* Scrolling Brands Animation */
+
+/* Keyframe per scorrimento infinito lento da destra a sinistra */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50%));
+  }
+}
+
+/* Container della traccia */
+.scrolling-brands-track {
+  display: flex;
+  gap: 1rem;
+  animation: scroll-left 60s linear infinite;
+  width: fit-content;
+}
+
+/* Pause animation on hover per leggibilità */
+.scrolling-brands-track:hover {
+  animation-play-state: paused;
+}
+
+/* Item singolo nella traccia */
+.scrolling-brands-item {
+  flex-shrink: 0;
+  min-width: fit-content;
+}
+
+/* Variante più veloce (30s) */
+.scrolling-brands-track.fast {
+  animation-duration: 30s;
+}
+
+/* Variante più lenta (90s) */
+.scrolling-brands-track.slow {
+  animation-duration: 90s;
+}
+
+/* Variante scorrimento verso destra */
+@keyframes scroll-right {
+  0% {
+    transform: translateX(calc(-50%));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.scrolling-brands-track.rtl {
+  animation: scroll-right 60s linear infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .scrolling-brands-track {
+    gap: 0.5rem;
+    animation-duration: 40s;
+  }
+
+  .scrolling-brands-item {
+    min-width: fit-content;
+  }
+}
+
+/* Effetto parallasse leggero (opzionale per un secondo traccia a velocità diversa) */
+@keyframes scroll-left-slower {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50%));
+  }
+}
+
+.scrolling-brands-track.slower {
+  animation: scroll-left-slower 90s linear infinite;
+}
